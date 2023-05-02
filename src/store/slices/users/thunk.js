@@ -65,7 +65,7 @@ export const checkCookie = (cookie, setlogged) => {
            
         } else {
             dispatch(loginFailed())
-            setlogged('failed')
+            setlogged('unLogged')
         }
        
 

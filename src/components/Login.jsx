@@ -3,6 +3,7 @@ import { useForm } from '../hooks/useForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkCookie, checkLogin } from '../store/slices/users/thunk'
 import { useCookie } from '../hooks/useCookie'
+import { Navigate } from 'react-router-dom'
 
 export const Login = () => {
 
@@ -26,13 +27,18 @@ export const Login = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-        <input type='text' name='email' onChange={handleChange}/>
-        <input type='password' name='password' onChange={handleChange}/>
-        <input type='submit' value='entrar'/>
-    </form>
     {
-            logged == 'failed' && <p>Usuario o contraseña incorrecta </p> 
+            (logged === 'unLogged' || logged === 'failed') && 
+            <form onSubmit={handleSubmit}>
+            <input type='text' name='email' onChange={handleChange}/>
+            <input type='password' name='password' onChange={handleChange}/>
+            <input type='submit' value='entrar'/>
+        </form>
+        }
+    
+    {
+            logged == 'failed' &&
+             <p>Usuario o contraseña incorrecta </p> 
         }
 
 {
@@ -44,6 +50,11 @@ export const Login = () => {
                               {role}
                             </h1>
                         )
+                }
+
+                {
+                  logged == 'admitted' &&
+                  <Navigate to={'/'} />
                 }
     </>
   )

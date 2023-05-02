@@ -27,6 +27,9 @@ export const userSlice = createSlice({
             state.email = null;
             state.role = null;
             state.name = null;
+        },
+        logOut: (state, action) => {
+            
         }
     }
 
