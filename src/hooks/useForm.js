@@ -23,20 +23,7 @@ export const useForm = (estadoInicial) => {
     }
 
     
-    const handleSubmit=(ev)=>{
-        ev.preventDefault()
-
-      const data=serializarFormulario(ev.target)
-
-      console.log(data)
-       
-
-        setFormulario(data)
-
-        setEnviado(true)
-       
-
-    }
+    
 
     const handleChange=({target})=>{
        const{name,value}=target
@@ -54,9 +41,10 @@ export const useForm = (estadoInicial) => {
 
   return {
     formulario,
-    handleSubmit,
     handleChange,
     enviado,
-    setEnviado
+    setEnviado,
+    serializarFormulario,
+    setFormulario
   }
 }

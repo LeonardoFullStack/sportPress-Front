@@ -9,9 +9,11 @@
 }
 
 header, footer {
-    display:flex;
+    display:grid;
+    grid-template-columns: 100px 1fr 100px;
     height: 100px;
     background-color: var(--main-color);
+    gap: 5px;
     
 }
 
@@ -21,11 +23,177 @@ img {
 
 .divLogo {
     display: inline-block;
+    grid-column: 1 / 2;
     height:70px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    margin:auto 0 auto 30px;
+    margin:auto auto;
+
 }
 
-.divLogo:hover {
+.divLogo > img:hover {
+    border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+.material-symbols-outlined {
+  color:white;
+}
+
+.displayNone {
+    display:none
+}
+
+.burguermenu {
+
+    display:inline-block;
+    cursor:pointer;
+    grid-column: 3 / 4;
+    margin: auto auto;
+}
+
+.burguerOpen {
+    position:absolute;
+    top: 39px;
+    right: 65px;
+    width:81px;
+    height: auto;
+    text-align: center;
+}
+
+.navLink {
+    display:block;
+    background-color: rgb(206, 220, 223);
+    border-radius: 5px;
+    margin: 4px 0;
+    text-decoration: none;
+    color:black;
+}
+
+.bigMenu {
+    display:none;
+    grid-column: 2 / 4;
+    margin: auto auto;
+}
+
+.loginForm {
+    display: flex;
+    width:100%;
+    text-align: center;
+
+}
+
+.loginForm > form, h1 {
+    display:flex;
+    flex-direction: column;
+    margin:15px auto;
+    background-color: var(--main-color);
+    padding:15px;
+    border-radius: 5px;
+
+}
+
+.formGroup {
+    position:relative;
+    --color: #5757577e;
+}
+
+.formInput {
+    width:100%;
+    font-family: inherit;
+    font-size: 1rem;
+    color:var(--color);
+    padding: .6em .3em;
+    border:none;
+    outline:none;
+    border-bottom: 1px solid var(--color);
+    margin: 5px 0;
+}
+
+.formLabel {
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.formInput:focus + .formLabel {
+    transform: translateY(-12px) scale(.7);
+    transform-origin: top left ;
+    --color:white;
+}
+
+.classicButton {
+    padding:5px;
+    border:none;
+    background-color: chartreuse;
+    margin: 5px;
+    cursor:pointer;
+}
+
+.classicButton:hover {
+    transform: scale(1.2);
+    transition: transform .1s;
+    border-radius: 5px;
+}
+
+.errors {
+    background-color: rgb(223, 148, 148);
+    border-radius: 5px;
+    border: 1px solid red;
+    color:rgb(73, 2, 2);
+}
+
+.successfull {
+    background-color: rgb(181, 239, 170);
+    border-radius: 5px;
+    border: 1px solid green;
+    color:rgb(73, 2, 2);
+}
+
+.loadingImage {
+    height: 30px;
+}
+
+.classicCard {
+    width:80%;
+    background-color: var(--main-color);
+    margin:20px auto;
+    text-align: center;
+    border-radius: 5px;
+    color:white;
+}
+
+@media screen and (min-width: 792px) {
+    .burguermenu {
+        display:none;
+    }
+
+    .bigMenu {
+        display:inline-flex;
+        flex-direction: row;
+        grid-column: 2 / 3;
+        width: 100%
+    }
+
+    .burguerOpen {
+        display:none;
+    }
+
+    nav {
+        display: flex;
+        margin: 0 auto;
+        
+    }
+
+    .navLink {
+        margin:0 5px;
+        display:inline-block;
+        padding:0 2px;
+    }
 }

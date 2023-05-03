@@ -8,10 +8,17 @@ export const NavBar = () => {
   return (
     <nav>
         {
-            name && <NavLink to='logout' className='navLink'
+            name && <>
+            <NavLink to='logout' className='navLink'
           
             >Logout
             </NavLink>
+            <NavLink to='changepass' className='navLink'
+          
+            >Cambiar contraseña
+            </NavLink>
+            </>
+            
         }
         {
             name == null && <NavLink to='login' className='navLink'

@@ -3,7 +3,7 @@ import { loginFailed, setUsers, startLoadingUsers } from "../../../slices/users/
 import bcrypt from 'bcryptjs';
 
 
-export const checkLogin = ({email, password}, logged, setlogged) => {
+export const checkLogin = ({ email, password }, logged, setlogged) => {
 
     return async (dispatch, getState) => {
         dispatch(startLoadingUsers())
@@ -21,7 +21,7 @@ export const checkLogin = ({email, password}, logged, setlogged) => {
 
             if (passwordOk) {
                 console.log(passwordOk)
-                dispatch(setUsers({ email: petition.data[0].email, role: petition.data[0].role, name: petition.data[0].name  }))
+                dispatch(setUsers({ email: petition.data[0].email, role: petition.data[0].role, name: petition.data[0].name }))
                 setlogged('admitted')
                 document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
                 console.log(document.cookie)
@@ -35,12 +35,12 @@ export const checkLogin = ({email, password}, logged, setlogged) => {
             dispatch(loginFailed())
             setlogged('failed')
         }
-       
 
 
-        
 
-        
+
+
+
     }
 
 }
@@ -51,26 +51,47 @@ export const checkCookie = (cookie, setlogged) => {
         dispatch(startLoadingUsers())
         const splittedCookie = cookie.split('=')
         const token = splittedCookie[1]
-        console.log(token)
-        const body = {
-            token
-        }
-
-        const resp = await consulta(`/api/users/verifytoken`, 'post', body)// cogemos el usuario
-        const petition = await resp.json()
-
-        if (petition.ok) {
-            dispatch(setUsers({ email: petition.user.email, role: petition.user.role, name: petition.user.name  }))
-            setlogged('admitted')
-           
-        } else {
+        if (!token) {
             dispatch(loginFailed())
             setlogged('unLogged')
+        } else {
+
+
+            const body = {
+                token
+            }
+
+            const resp = await consulta(`/api/users/verifytoken`, 'post', body)// cogemos el usuario
+            const petition = await resp.json()
+
+            if (petition.ok) {
+                dispatch(setUsers({ email: petition.user.email, role: petition.user.role, name: petition.user.name }))
+                setlogged('admitted')
+
+            } else {
+                dispatch(loginFailed())
+                setlogged('unLogged')
+            }
+
+
+
+
+
+
         }
+    }
+}
+
+export const changePass = async (body, setvalidate) => {
+    
+    const resp = await consulta('/api/users/updatepass', 'put', body)
+    const petition = await resp.json()
+    console.log(petition)
+    setvalidate('successfull')
+    console.log('paso')
+
+    return async (dispatch, getState) => {
        
-
-
-        
 
         
     }

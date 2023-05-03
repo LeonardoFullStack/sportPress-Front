@@ -1,4 +1,5 @@
 import { Login } from "./components/Login"
+import { NavBar } from "./components/NavBar"
 import {Router} from './routers/Router'
 
 
@@ -11,6 +12,19 @@ function App() {
     <div className="divLogo">
       <img src="../src/assets/logosportpress.png"/>
     </div>
+    <div className="burguermenu">
+    <span className="material-symbols-outlined">
+    menu
+    </span>
+    </div>
+    <div className="bigMenu">
+    <NavBar/>
+    </div>
+
+    <div className="burguerOpen">
+    <NavBar/>
+    </div>
+    
     </header>
 
     <main>
