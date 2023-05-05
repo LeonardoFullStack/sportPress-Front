@@ -24,7 +24,7 @@ export const ChangePass = () => {
         }
       dispatch(changePass(body, setvalidate))
        }
-console.log(validate)
+
   return (
     <>
    

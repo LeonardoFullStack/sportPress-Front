@@ -3,6 +3,7 @@ import { loginFailed, setUsers, startLoadingUsers } from "../../../slices/users/
 import bcrypt from 'bcryptjs';
 
 
+
 export const checkLogin = ({ email, password }, logged, setlogged) => {
 
     return async (dispatch, getState) => {
@@ -96,4 +97,38 @@ export const changePass = async (body, setvalidate) => {
         
     }
 
+}
+
+export const registerUser = (data, setvalidate) => {
+
+    return async (dispatch, getState) => {
+        /* dispatch(startLoadingUsers()) */
+        const body = {
+            ...data
+        }
+        console.log('llego')
+        const resp = await consulta(`/api/users/signup`, 'post', body)
+        console.log(resp)
+        const petition = await resp.json()
+        console.log(petition.msg)
+        
+        if (petition.ok) {
+            const newUser = {
+                email: petition.data[0].email,
+                 role: petition.data[0].role,
+                  name: petition.data[0].name
+            }
+            dispatch(setUsers({...newUser}));
+            document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
+            setvalidate('successfull')
+        } else if (petition.msg === "Email ya en uso") {
+            dispatch(loginFailed())
+            setvalidate('usedEmail')
+
+        }
+        else {
+            dispatch(loginFailed())
+            setvalidate('serverFailed')
+        }
+    }
 }
