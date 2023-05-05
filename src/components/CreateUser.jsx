@@ -46,8 +46,8 @@ export const CreateUser = () => {
               <div className='errors'>
                 Email actualmente en uso. Prueba otro.
               </div>}
-              {validate == 'usedEmail' &&
-              <div className='serverFailed'>
+              {validate == 'serverFailed' &&
+              <div className='errors'>
                 Fallo en el servidor. No sé que ha pasado.
               </div>}
               {

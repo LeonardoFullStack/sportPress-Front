@@ -46,7 +46,7 @@ export const uploadCloudinary = async (file) => {
         body: formData
     }
     const petition = await fetch('https://api.cloudinary.com/v1_1/dnxliek6h/image/upload', options)
-    const petitionJson = await petition.json()
-    console.log(petitionJson)
+    const {url} = await petition.json()
+    return url 
 }
 
