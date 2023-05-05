@@ -17,14 +17,25 @@ export const NavBar = () => {
           
             >Cambiar contraseña
             </NavLink>
+            <NavLink to='collaborator/uploadentry' className='navLink'
+          
+            >Subir noticia
+            </NavLink>
             </>
             
         }
         {
-            name == null && <NavLink to='login' className='navLink'
+            name == null && <>
+            <NavLink to='login' className='navLink'
           
             >Login
             </NavLink>
+            <NavLink to='createuser' className='navLink'
+          
+            >Registrarse
+            </NavLink>
+            </>
+            
         }
           
     </nav>

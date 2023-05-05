@@ -21,7 +21,7 @@ function App() {
     <NavBar/>
     </div>
 
-    <div className="burguerOpen">
+    <div className="burguerOpen displayNone">
     <NavBar/>
     </div>
     

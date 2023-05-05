@@ -43,7 +43,7 @@ img {
 }
 
 .displayNone {
-    display:none
+    display:none;
 }
 
 .burguermenu {
@@ -55,12 +55,14 @@ img {
 }
 
 .burguerOpen {
+
     position:absolute;
     top: 39px;
     right: 65px;
     width:81px;
     height: auto;
     text-align: center;
+    z-index: 10000;
 }
 
 .navLink {
@@ -85,13 +87,15 @@ img {
 
 }
 
-.loginForm > form, h1 {
+.loginForm > form {
     display:flex;
     flex-direction: column;
     margin:15px auto;
     background-color: var(--main-color);
     padding:15px;
     border-radius: 5px;
+    color:white;
+    max-width: 330px;
 
 }
 
