@@ -7,6 +7,10 @@ export const NavBar = () => {
     const { email, name, role, isLoading } = useSelector((state) => state.users)
   return (
     <nav>
+          <NavLink to='/' className='navLink'
+          
+          >Home
+          </NavLink>
         {
             name && <>
             <NavLink to='logout' className='navLink'

@@ -28,8 +28,16 @@ export const newSlice = createSlice({
         uploadInput: (state, action) => {
             
             state.requestState = 'successfull';
+        },
+        resetRequestState: (state, action) => {
+            state.requestState = ''
+        },
+        getLast4News: (state, action) => {
+
+            state.news1 = action.payload.data
+            state.requestState = 'successfull'
         }
     }
 })
 
-export const { startLoading, uploadInput } = newSlice.actions
+export const { startLoading, uploadInput, resetRequestState, getLast4News } = newSlice.actions

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { uploadEntry } from '../../store/slices/news/thunk';
+import { resetRequestState } from '../../slices/news/newSlice';
 
 export const UploadEntry = () => {
 
@@ -24,6 +25,10 @@ export const UploadEntry = () => {
 
         dispatch(uploadEntry(data, id_user));
     }
+
+    useEffect(()=> {
+      dispatch(resetRequestState())
+    },[])
   return (
     <>
     <div className='loginForm'>
@@ -49,6 +54,10 @@ export const UploadEntry = () => {
                   Imagen
                 </h1>
             <input type='file' className='formInput fileInput' name='entryImage'  onChange={handleChange}/>
+            <h2 className='firtsHeader'>
+                  Definición de la imagen
+                </h2>
+            <input type='text' className='formInput' name='altimage' placeholder='Definición' onChange={handleChange}/>
             {requestState == 'loading' ?
             (<div className='loadingImage'>
             <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
