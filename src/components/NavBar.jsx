@@ -17,10 +17,7 @@ export const NavBar = () => {
           
             >Cambiar contraseña
             </NavLink>
-            <NavLink to='collaborator/uploadentry' className='navLink'
-          
-            >Subir noticia
-            </NavLink>
+            
             </>
             
         }
@@ -37,6 +34,16 @@ export const NavBar = () => {
             </>
             
         }
+        {
+            role == 'collaborator' && <>
+            <NavLink to='collaborator/uploadentry' className='navLink'
+          
+          >Subir noticia
+          </NavLink>
+            </>
+            
+        }
+
           
     </nav>
   )

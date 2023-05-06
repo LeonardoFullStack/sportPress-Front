@@ -8,7 +8,9 @@ export const LogOut = () => {
     const dispatch = useDispatch()
 
     const clearCookie = () => {
-      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; SameSite=Strict;';
+
+      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax' ;
+
     }
 
     useEffect(()=>{

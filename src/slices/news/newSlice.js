@@ -9,7 +9,7 @@ export const newSlice = createSlice({
         news3:[],
 
         //Para el cargando.
-        isLoading:false,
+        requestState:'',
 
         //Para subir las noticias
         updated:false,
@@ -23,12 +23,13 @@ export const newSlice = createSlice({
     },
     reducers: {
         startLoading: (state) => {
-            state.isLoading = true;
+            state.requestState = 'loading';
         },
-        uploadEntry: (state, action) => {
-
+        uploadInput: (state, action) => {
+            
+            state.requestState = 'successfull';
         }
     }
 })
 
-export const { startLoading } = newSlice.actions
+export const { startLoading, uploadInput } = newSlice.actions

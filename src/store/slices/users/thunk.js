@@ -15,14 +15,14 @@ export const checkLogin = ({ email, password }, logged, setlogged) => {
 
         const resp = await consulta(`/api/users`, 'post', body)// cogemos el usuario
         const petition = await resp.json()
-
+        console.log(petition)
         if (petition.ok) {
 
             let passwordOk = bcrypt.compareSync(password, petition.data[0].password)//verificamos su password
-
+            console.log(petition.data[0].id_user)
             if (passwordOk) {
                 console.log(passwordOk)
-                dispatch(setUsers({ email: petition.data[0].email, role: petition.data[0].role, name: petition.data[0].name }))
+                dispatch(setUsers({ id_user: petition.data[0].id_user, email: petition.data[0].email, role: petition.data[0].role, name: petition.data[0].name }))
                 setlogged('admitted')
                 document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
                 console.log(document.cookie)
@@ -66,7 +66,7 @@ export const checkCookie = (cookie, setlogged) => {
             const petition = await resp.json()
 
             if (petition.ok) {
-                dispatch(setUsers({ email: petition.user.email, role: petition.user.role, name: petition.user.name }))
+                dispatch(setUsers({id_user:petition.user.id_user, email: petition.user.email, role: petition.user.role, name: petition.user.name }))
                 setlogged('admitted')
 
             } else {

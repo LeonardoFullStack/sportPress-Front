@@ -101,9 +101,12 @@ img {
 
 .formGroup {
     position:relative;
-    --color: #5757577e;
+    --color: #4e4d4d7e;
 }
 
+.fileInput {
+    color:white!important
+}
 .formInput {
     width:100%;
     font-family: inherit;
@@ -114,6 +117,10 @@ img {
     outline:none;
     border-bottom: 1px solid var(--color);
     margin: 5px 0;
+}
+
+.textarea {
+    height:200px;
 }
 
 .formLabel {

@@ -5,6 +5,7 @@ export const userSlice = createSlice({
 
     name: 'users',
     initialState: {
+        id_user: null,
         email: null,
         name:null,
         role:null,
@@ -19,14 +20,15 @@ export const userSlice = createSlice({
                 state.isLoading = false;
                 state.email = action.payload.email;
                 state.role = action.payload.role;
-                state.name = action.payload.name
-            /* console.log(store.getState().users) */
+                state.name = action.payload.name;
+                state.id_user = action.payload.id_user;
         },
         loginFailed: (state, action) => {
             state.isLoading = false;
             state.email = null;
             state.role = null;
             state.name = null;
+            state.id_user = null;
         },
         logOut: (state, action) => {
             
