@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom'
 
 
 export const NavBar = () => {
+  
     const { email, name, role, isLoading } = useSelector((state) => state.users)
+
   return (
     <nav>
           <NavLink to='/' className='navLink'

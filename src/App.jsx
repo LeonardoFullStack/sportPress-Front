@@ -43,7 +43,14 @@ function App() {
     <main>
     <Router/>
     </main>
-      
+      <footer>
+      <div className="divLogo">
+      <img src="../src/assets/logosportpress.png"/>
+    </div>
+    <p>
+    ® SportPress todos los derechos reservados 
+    </p>
+      </footer>
 
     </>
   )

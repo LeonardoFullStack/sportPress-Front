@@ -8,11 +8,11 @@ import { useForm } from '../hooks/useForm';
 export const ViewOne = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
-  const {handleChange, serializarFormulario} = useForm('')
+  const { handleChange, serializarFormulario } = useForm('')
   const { requestState, newTitle, newImage, newDate, newText, comments, id_new } = useSelector((state) => state.news)
   const { name, id_user } = useSelector((state) => state.users)
-  console.log(comments)
-  const handleSubmit = (ev)  => {
+  console.log(name)
+  const handleSubmit = (ev) => {
     ev.preventDefault()
     const data = serializarFormulario(ev.target)
     dispatch(uploadComment(data.text, name, id_user, id_new))
@@ -46,15 +46,26 @@ export const ViewOne = () => {
           ))
         }
       </section>
-      <div className='commentForm'>
-        <form onSubmit={handleSubmit}>
-          <div className='formGroup'>
-            <input type='text' className='formInput' name='text' placeholder='Publica aquí tu comentario' onChange={handleChange} />
+      {
+        name == null ?
+          <section id='unLoggedComments'>
+            <p>
+              Regístrate o haz login para poder comentar!
+            </p>
+          </section>
+          :
 
-            <input type='submit' className='classicButton' value='Publicar' />
+          <div className='commentForm'>
+            <form onSubmit={handleSubmit}>
+              <div className='formGroup'>
+                <input type='text' className='formInput' name='text' placeholder='Escribe aquí tu comentario' onChange={handleChange} />
+                  
+                <input type='submit' className='classicButton' value='Publicar' />
+              </div>
+            </form>
           </div>
-          </form>
-          </div>
+      }
+
     </>
   )
 }

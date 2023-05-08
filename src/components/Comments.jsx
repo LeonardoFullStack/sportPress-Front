@@ -17,7 +17,7 @@ export const Comments = ({item}) => {
     <>
     <article id='comments'>
     <p className='nameComment'>
-       {item.name} 
+       {item.name} :
     </p>
     <p className='dateComment'>
         {newDate}

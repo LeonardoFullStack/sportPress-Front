@@ -12,7 +12,10 @@ export const Login = () => {
   const dispatch = useDispatch()
   const [logged, setlogged] = useState('unLogged')
 
-
+  /**
+ * Función para manejar el envío del formulario
+ * @param {Object} ev - El evento que se desencadena cuando se envía el formulario
+ */
   const handleSubmit = (ev) => {
     ev.preventDefault()
 
@@ -31,7 +34,7 @@ export const Login = () => {
 
   }
 
-  console.log(isLoading)
+
   useEffect(() => {
 
     if (enviado) {
@@ -45,10 +48,17 @@ export const Login = () => {
     <>
   
       <div className='loginForm'>
+        
         <form onSubmit={handleSubmit}>
           <div className='formGroup'>
-            <input type='text' className='formInput' name='email' placeholder=' ' onChange={handleChange} />
-            <label className='formLabel' for='email'>Email</label>
+          <div className="divLogo">
+          <img src="../src/assets/logosportpress.png"/>
+          </div>
+
+          <h1>Login</h1>
+
+            <input type='text' className='formInput' name='email' placeholder='Email' onChange={handleChange} />
+            
             <input type='password' className='formInput' name='password' placeholder='Password' onChange={handleChange} />
 
             {isLoading ?

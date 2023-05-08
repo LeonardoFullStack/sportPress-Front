@@ -3,11 +3,13 @@ import { useForm } from '../hooks/useForm'
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../store/slices/users/thunk';
 import { Navigate } from 'react-router-dom'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export const CreateUser = () => {
     const {handleChange, enviado, serializarFormulario} = useForm('');
     const dispatch = useDispatch();
     const [validate, setvalidate] = useState('')
+    const [captchaValidate, setcaptchaValidate] = useState(false)
     const handleSubmit = (ev) => {
         ev.preventDefault();
         const data = serializarFormulario(ev.target)
@@ -16,10 +18,22 @@ export const CreateUser = () => {
             setvalidate('invalid')
             return
           }
-        dispatch(registerUser(data, setvalidate))
-        setvalidate('submitted')
+
+          if (captchaValidate) {
+            dispatch(registerUser(data, setvalidate))
+            setvalidate('submitted')
+        } else {
+          setcaptchaValidate('unknown')
+          }
+        
         
     }
+
+    const onChange = () => {
+      setcaptchaValidate(true)
+    }
+
+console.log(validate)
   return (
     <>
     <div className='loginForm'>
@@ -33,9 +47,11 @@ export const CreateUser = () => {
              usuario
              
            </h1>
-           <span class="material-symbols-outlined">
-            sports_soccer
-            </span>
+
+           <div className="divLogo">
+              <img src="../src/assets/logosportpress.png"/>
+          </div>
+
                 <input type='text' className='formInput' name='email' placeholder='E-mail' onChange={handleChange}/>
                 
                 <input type='text' className='formInput' name='name' placeholder='Nickname' onChange={handleChange}/>
@@ -57,6 +73,11 @@ export const CreateUser = () => {
                 Rellena bien todos los campos.
               </div>}
 
+              {captchaValidate == 'unknown' &&
+              <div className='errors'>
+                Debes completar el captcha.
+              </div>}
+
               {
                 validate == 'submitted' ?
                 (<div className='loadingImage'>
@@ -67,10 +88,16 @@ export const CreateUser = () => {
               }
 
                 
-                {validate == 'successfull' &&
-            <div className='successfull'>
-              Usuario creado
-            </div>}
+              {
+              validate == 'successfull' &&
+                <div className='successfull'>
+                  Usuario creado
+                </div>
+            }
+            <ReCAPTCHA
+                sitekey="6LfDy-8lAAAAAHg_rPNhVgSJiZlrHnxeCOf2yfDJ"
+                onChange={onChange}
+            />
             </div>
         </form>
     </div>

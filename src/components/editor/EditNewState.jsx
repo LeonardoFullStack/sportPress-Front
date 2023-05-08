@@ -6,10 +6,11 @@ import { TableNews } from './TableNews'
 export const EditNewState = () => {
     const { pendingNews } = useSelector((state) => state.news)
     const dispatch = useDispatch()
-    console.log(pendingNews)
+    
     useEffect(() =>{
         dispatch(getPendingNews())
     },[])
+    
   return (
     <section>
         <table className='usersTable'>

@@ -24,12 +24,19 @@ header {
 }
 
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
+    position: relative;
+    display:grid;
+    grid-template-columns: 100px 1fr 100px;
     background-color: var(--main-color);
+    height:100px;
+}
+
+footer p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color:white;
+    margin: auto auto;
 
 }
 
@@ -57,7 +64,7 @@ img {
 
 
 .material-symbols-outlined {
-  color:white;
+  color:chartreuse
 }
 
 .displayNone {
@@ -83,14 +90,31 @@ img {
     z-index: 10000;
 }
 
+.burguerOpen nav a {
+    margin-top: 3px;
+    display: inline-block;
+}
+
 .navLink {
-    display:block;
-    background-color: rgb(206, 220, 223);
+
+    display: block;
+    background-color: rgb(151, 212, 89);
     border-radius: 5px;
     margin: 4px 0;
     text-decoration: none;
     color:black;
 }
+
+nav .navLink {
+    margin: 0 10px;
+}
+
+nav .navLink:hover {
+    transform: scale(1.2);
+    transition: transform .1s;
+    border-radius: 5px;
+}
+
 
 .bigMenu {
     display:none;
@@ -115,6 +139,17 @@ img {
     color:white;
     max-width: 330px;
 
+}
+
+#unLoggedComments {
+    display:flex;
+    flex-direction: column;
+    margin:15px auto;
+    background-color: var(--main-color);
+    padding:15px;
+    border-radius: 5px;
+    color:white;
+    max-width: 330px;
 }
 
 .formGroup {
@@ -262,7 +297,7 @@ img {
 #alterNews {
     width: 80%;
     margin:0 auto;
-    border: 1px solid rgb(138, 132, 132);
+    border: none
     border-radius: 3px;
 }
 
@@ -285,9 +320,10 @@ img {
     justify-content: center;
     align-items: center;
     width: 200px;
-    margin:0 auto 0 auto;
+    margin:10px auto 0 auto;
     height:100px;
     padding: 10px;
+    color:white;
 }
 
 .userInfoKey {
@@ -307,7 +343,7 @@ img {
     justify-content: center;
     align-items: center;
     width: 200px;
-    margin:0 auto 10px auto;
+    margin:10px auto 0 auto;
     height:100px;
     padding: 10px 5px 10px 5px;
 }
@@ -328,12 +364,20 @@ img {
     border-radius: 53px;
 }
 
-.alterNew {
-    border-bottom: 1px solid black;
-}
+
+
 
 .alterNewImage {
-    display:flex;
+    max-width: 140px;
+}
+
+.alterNewImage img {
+    object-fit: cover;
+    border-radius: 53px;
+}
+
+.imageAndText {
+    display:flex
 }
 
 .alterNewImage img {
@@ -391,7 +435,7 @@ img {
 .nameComment {
     grid-column: 1 / 3;
     background-color: rgb(188, 162, 222);
-    border-bottom: 1px solid black;
+    border-bottom:none;
 }
 
 .textComment {
