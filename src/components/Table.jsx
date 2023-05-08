@@ -53,7 +53,8 @@ export const Table = ({item}) => {
         {
             (item.email == emailModified) && (requestState == 'roleModified') &&
             <tr className='successfull'>
-                rol actualizado correctamente
+              <td colSpan="4">rol actualizado correctamente</td>
+                
             </tr>
         }
     

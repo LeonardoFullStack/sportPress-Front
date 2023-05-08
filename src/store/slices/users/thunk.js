@@ -125,7 +125,7 @@ export const selectTeam = (team, email) => {
 export const registerUser = (data, setvalidate) => {
 
     return async (dispatch, getState) => {
-        /* dispatch(startLoadingUsers()) */
+        dispatch(startLoadingUsers())
         const body = {
             ...data
         }
@@ -158,7 +158,7 @@ export const registerUser = (data, setvalidate) => {
 
 export const getAllUsers = () => {
     return async (dispatch,getState) => {
-
+        dispatch(startLoadingUsers())
         try {
             const resp = await consulta('/api/users')
             const petition = await resp.json()
@@ -174,6 +174,7 @@ export const getAllUsers = () => {
 
 export const updateRoleUser = (email, role) => {
     return async (dispatch, getState) => {
+        dispatch(startLoadingUsers())
         const body = {
             role,
             email
@@ -183,10 +184,11 @@ export const updateRoleUser = (email, role) => {
             const petition = await resp.json()
             
             if (petition.ok) {
-                dispatch(roleModified({email: email}))
+                dispatch(roleModified({email: email, role:role}))
             }
         } catch (error) {
             dispatch(requestFailed())
         }
     }
 }
+

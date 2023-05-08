@@ -165,6 +165,14 @@ img {
     cursor:pointer;
 }
 
+.redButton {
+    padding:5px;
+    border:none;
+    background-color: rgb(255, 0, 21);
+    margin: 5px;
+    cursor:pointer;
+}
+
 .classicButton:hover {
     transform: scale(1.2);
     transition: transform .1s;

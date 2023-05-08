@@ -1,6 +1,6 @@
 import { setNewDate } from "../../../helpers/setDate";
 import { consulta, uploadCloudinary } from "../../../hooks/useFetch";
-import { createaComment, deleteAComment, getSingleNew, getTheNews,  startLoading, uploadInput } from "../../../slices/news/newSlice";
+import { createaComment, deleteAComment, getPendingNewsReducer, getSingleNew, getTheNews,  startLoading, updateStateNew, uploadInput } from "../../../slices/news/newSlice";
 import { requestFailed } from "../../../slices/users/userSlice";
 
 export const uploadEntry = (data, id_user) => {
@@ -113,7 +113,47 @@ export const uploadComment = (text, name, id_user, id_new) => {
                 dispatch(createaComment({data: petition2.data.comments}))
             }
         } catch (error) {
-            
+            dispatch(requestFailed())
+        }
+    }
+}
+
+export const getPendingNews = () => {
+    
+    return async (dispatch, getState) => {
+        dispatch(startLoading())
+
+
+        try {
+            const resp = await consulta(`/api/news/newsbystate/pending`) 
+            const petition = await resp.json() 
+            console.log(petition)
+            if (petition.ok) {
+                dispatch(getPendingNewsReducer({data: petition.data}))
+            }
+        } catch (error) {
+            dispatch(requestFailed())
+        }
+    }
+}
+
+export const updateNewState = (newState, idNew) => {
+    return async (dispatch, getState) => {
+        dispatch(startLoading())
+
+        const body = {
+            state: newState,
+            id_new: idNew
+        }
+        try {
+            const resp = await consulta('/api/news/updatenewstate', 'put', body)
+            const petition = await resp.json()
+            console.log(petition)
+            if (petition.ok) {
+                dispatch(updateStateNew({id_new: idNew}))
+            }
+        } catch (error) {
+            dispatch(requestFailed())
         }
     }
 }
