@@ -8,6 +8,7 @@ export const newSlice = createSlice({
         news2:[],
         singleNew:{},
         comments:[],
+        pendingNews:[],
         //Para el cargando.
         requestState:'',
 
@@ -66,11 +67,20 @@ export const newSlice = createSlice({
         },
         createaComment: (state, action) => {
             state.comments = action.payload.data
+        },
+        getPendingNewsReducer: (state, action) => {
+            state.pendingNews = action.payload.data
+            console.log(state.pendingNews)
+        },
+        updateStateNew: (state, action) => {
+            state.pendingNews = state.pendingNews.filter(news => news.id_new !== action.payload.id_new);
+            state.requestState = 'successfullStateNew'
         }
         
     }
 })
 
 export const {
-     startLoading, uploadInput, resetRequestState, getTheNews, getSingleNew,deleteAComment,createaComment
+     startLoading, uploadInput, resetRequestState, getTheNews, getSingleNew,deleteAComment,createaComment,
+     getPendingNewsReducer, updateStateNew
      } = newSlice.actions

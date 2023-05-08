@@ -1,3 +1,10 @@
+
+
+/**
+ * Función para formatear una fecha en un formato mas cómodo
+ * @param {string} dateUnSetted - La fecha que se va a formatear
+ * @returns {string} La fecha formateada en el formato "dd/mm/yyyy hh:mm"
+ */
 export const setNewDate = (dateUnSetted) => {
     console.log(dateUnSetted)
     const date = new Date(dateUnSetted)

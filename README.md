@@ -1,41 +1,51 @@
 # sportPress-Front
+
 Front-End del proyecto sportPress de Leonardo
 
+---
 
-COSAS A RECORDAR:
-validacion en el getnewsbystate
+**Características**
 
+El proyecto trata de un portal de noticias deportivas comentables, que es gestionada por usuarios definidos con los siguientes roles:
+- **administrador**: gestiona los roles de los usuarios.
+- **editor**: selecciona y publica las noticias de los colaboradores.
+- **colaborador**: crea noticias que tienen que ser supervisadas.
+- **moderador**: puede eliminar comentarios indeseados.
+- **usuario**: simplemente pueden comentar las noticias. Es el rol por defecto y el que se obtiene al registrarse.
 
-COSAS A HACER:
-registro de  usuarios
-seleccionar equipo de preferencia
-crear noticia en el front
-crear carruseles
-intentar reutilizar el componente de noticias por equipo
+---
 
+**Tecnologías utilizadas**
+- React
+- Node
+- PostgreSql
+- Redux
+- React-google-recaptcha
+- Jsonwebtoken
+- Jest
 
-tienen que haber 4 noticias en total en todas las peticiones
-2 barça (jaume amat, id=18; messi id=19)
-2 madrid (bellingham id=22; foyth id=22)
-2 otro (neymar id=20, guardiola  id=21)
+---
 
-colaboradores:
-doménico gatto domenicogatto@gmail.com id=22
-Paulo Vinícius pvc@gmail.com id=21
+**Instrucciones de instalación**
 
-    <div className="child">
-      <h1>Título 1</h1>
-      <img src="https://dam.ngenespanol.com/wp-content/uploads/2021/12/libelula-gigante.jpg" alt="Imagen 1"/>
-    </div>
-    <div className="child">
-      <h1>Título 2</h1>
-      <img src="https://dam.ngenespanol.com/wp-content/uploads/2021/12/libelula-gigante.jpg" alt="Imagen 1"/>
-    </div>
-    <div className="child">
-      <h1>Título 3</h1>
-      <img src="https://dam.ngenespanol.com/wp-content/uploads/2021/12/libelula-gigante.jpg" alt="Imagen 1"/>
-    </div>
-    <div className="child">
-      <h1>Título 4</h1>
-      <img src="https://dam.ngenespanol.com/wp-content/uploads/2021/12/libelula-gigante.jpg" alt="Imagen 1"/>
-    </div>
+Deberemos descargar el repositorio en nuestro ordenador con un `git clone`.
+
+A continuación, instalaremos las dependencias del proyecto, con el comando `npm install`.
+
+Y para finalizar, deberemos iniciar el proyecto con el comando `npm run start`.
+
+---
+
+**Usuarios**
+
+Estas son las cuentas de prueba de los usuarios con diferentes roles.
+Todas las contraseñas son 1234 .
+
+| Nombre | Email | Rol |
+|--------|----------|------|
+| Ana    | ana@gmail.com    | usuario  |
+| Juan   | elpachecos@gmail.com | moderador   |
+| Paulo  | pvc@gmail.com | colaborador   |
+| Pepe  | pepe@gmail.com | editor   |
+| Leonardo  | leonardo@gmail.com | administrador   |
+

@@ -17,6 +17,8 @@ export const LogOut = () => {
       dispatch(loginFailed()) //reseteamos el state de user
       clearCookie() // eliminamos la cookie
     },[])
+
+    
   return (
     <Navigate to={'/'} />
   )

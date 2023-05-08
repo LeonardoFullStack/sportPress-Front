@@ -8,17 +8,21 @@ export const TeamInfo = () => {
     const dispatch = useDispatch();
     const { requestState, team, email } = useSelector((state) => state.users)
     const [formTeam, setFormTeam] = useState('')
+    
+    
     const handleChange = (event) => {
         const selectedTeam = event.target.value;
         console.log(selectedTeam)
         setFormTeam(selectedTeam);
       };
-    const handleSubmit = (ev) => {
+    
+    
+      const handleSubmit = (ev) => {
         ev.preventDefault()
 
         dispatch(selectTeam(formTeam, email))
     }
-console.log(team)
+
 return (
     <div className='teamInfo'>
         {

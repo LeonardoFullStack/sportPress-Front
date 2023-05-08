@@ -4,8 +4,10 @@ import { updateRoleUser } from '../store/slices/users/thunk';
 
 export const Table = ({item}) => {
     const { emailModified, requestState } = useSelector((state) => state.users)
+    const [selectedRole, setSelectedRole] = useState(item.role)
+
     const dispatch = useDispatch()
-    console.log(emailModified)
+
     const roles = [
         "administrator",
         "moderator",
@@ -20,7 +22,7 @@ export const Table = ({item}) => {
 
     }
 
-    const [selectedRole, setSelectedRole] = useState(item.role)
+    
 
     const handleSelectChange = (event) => {
       setSelectedRole(event.target.value)
@@ -53,7 +55,8 @@ export const Table = ({item}) => {
         {
             (item.email == emailModified) && (requestState == 'roleModified') &&
             <tr className='successfull'>
-                rol actualizado correctamente
+              <td colSpan="4">rol actualizado correctamente</td>
+                
             </tr>
         }
     

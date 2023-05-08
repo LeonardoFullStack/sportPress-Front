@@ -47,11 +47,19 @@ export const userSlice = createSlice({
         },
         getTheUsers: (state, action) => {
             state.users = action.payload.users
-            console.log(state.users)
+            
         },
         roleModified: (state, action) => {
             state.emailModified = action.payload.email
             state.requestState = 'roleModified'
+            state.users = state.users.map((user) => {
+                if (user.email === action.payload.email) {
+                  
+                  return { ...user, role: action.payload.role };
+                } else {
+                  return user;
+                }
+              });
         }
     }
 

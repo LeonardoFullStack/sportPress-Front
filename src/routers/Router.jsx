@@ -9,6 +9,7 @@ import { CreateUser } from '../components/CreateUser'
 import { useSelector } from 'react-redux'
 import { ViewOne } from '../components/ViewOne'
 import { UpdateRole } from '../components/admin/UpdateRole'
+import { EditNewState } from '../components/editor/EditNewState'
 
 export const Router = () => {
 
@@ -31,6 +32,10 @@ export const Router = () => {
     {
     role == 'admin' && 
     <Route path='/admin/updaterole' element={<UpdateRole />} />
+    }
+    {
+    role == 'editor' && 
+    <Route path='/editor/editnewstate' element={<EditNewState />} />
     }
     </Routes>
     

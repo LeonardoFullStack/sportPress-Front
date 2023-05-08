@@ -19,7 +19,7 @@ export const Home = () => {
     }
     
   },[])
-  console.log(news1)
+
   return (
     <>
     <section id="mainNews">

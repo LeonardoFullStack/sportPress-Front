@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom'
 
 
 export const NavBar = () => {
+  
     const { email, name, role, isLoading } = useSelector((state) => state.users)
+
   return (
     <nav>
           <NavLink to='/' className='navLink'
@@ -48,11 +50,21 @@ export const NavBar = () => {
             
         }
 
-{
+        {
             role == 'admin' && <>
             <NavLink to='admin/updaterole' className='navLink'
           
           >Gestionar usuarios
+          </NavLink>
+            </>
+            
+        }
+
+        {
+            role == 'editor' && <>
+            <NavLink to='editor/editnewstate' className='navLink'
+          
+          >Publicar noticias
           </NavLink>
             </>
             
