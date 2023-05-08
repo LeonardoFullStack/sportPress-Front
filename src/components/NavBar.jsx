@@ -48,6 +48,16 @@ export const NavBar = () => {
             
         }
 
+{
+            role == 'admin' && <>
+            <NavLink to='admin/updaterole' className='navLink'
+          
+          >Gestionar usuarios
+          </NavLink>
+            </>
+            
+        }
+
           
     </nav>
   )

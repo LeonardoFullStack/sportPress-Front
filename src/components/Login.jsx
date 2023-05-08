@@ -40,11 +40,6 @@ export const Login = () => {
     }
   }, [enviado])
 
-  useEffect(() => {
-
-    dispatch(checkCookie(document.cookie, setlogged))
-
-  }, [])
 
   return (
     <>

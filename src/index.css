@@ -2,19 +2,35 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
     --main-color: rgb(118, 53, 168);
 }
 
-header, footer {
+main {
+    margin-bottom: 20px;
+}
+
+header {
+    position: relative;
     display:grid;
     grid-template-columns: 100px 1fr 100px;
     height: 100px;
     background-color: var(--main-color);
     gap: 5px;
     
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: var(--main-color);
+
 }
 
 img {
@@ -34,6 +50,8 @@ img {
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
+
+
 
 
 
@@ -164,7 +182,7 @@ img {
     background-color: rgb(181, 239, 170);
     border-radius: 5px;
     border: 1px solid green;
-    color:rgb(73, 2, 2);
+    color:rgb(9, 9, 9);
 }
 
 .loadingImage {
@@ -185,11 +203,12 @@ img {
 #mainNews {
     width:80%;
     margin: 15px auto;
+    
 }
 
 #parent {
   width: 100%;
-  height: 150px; /* ajustar según necesidades */
+  height: 150px; 
   position: relative;
   overflow: hidden;
 }
@@ -199,6 +218,7 @@ img {
     position: absolute;
     bottom: 0;
     left: 0;
+    
   }
 
 .child {
@@ -216,10 +236,12 @@ img {
     width: 100%;
     height: auto;
     object-fit: cover;
+    border-radius: 3px;
   }
 
 .child.active {
   opacity: 1;
+  z-index:1000;
 }
 
 .imageTitle {
@@ -227,6 +249,229 @@ img {
     font-size: 1rem;
     background-color: rgba(0, 0, 0, 0.3);
 }
+/* fin del carrusel */
+
+#alterNews {
+    width: 80%;
+    margin:0 auto;
+    border: 1px solid rgb(138, 132, 132);
+    border-radius: 3px;
+}
+
+
+#alterInfoHome {
+    display:grid;
+    grid-template-columns: 1fr ;
+    margin: 15px 10px 50px 10px;
+    font-size: 0.75rem;
+}
+
+#userInfo {
+    position: sticky;
+    display:flex;
+    flex-direction: column;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    padding:5px;
+    border: 1px solid chartreuse; 
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin:0 auto 0 auto;
+    height:100px;
+    padding: 10px;
+}
+
+.userInfoKey {
+    color:chartreuse
+}
+
+.userInfoValue {
+    color:white;
+}
+
+.teamInfo {
+    display:flex;
+    flex-direction: column;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    border: 1px solid chartreuse; 
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin:0 auto 10px auto;
+    height:100px;
+    padding: 10px 5px 10px 5px;
+}
+
+.teamHeader {
+    color:white;
+    margin-bottom: 5px;
+}
+
+.imgTeam {
+    height: 90px;
+    
+}
+
+.imgTeam img {
+    width:100%;
+    object-fit: cover;
+    border-radius: 53px;
+}
+
+.alterNew {
+    border-bottom: 1px solid black;
+}
+
+.alterNewImage {
+    display:flex;
+}
+
+.alterNewImage img {
+    max-width: 100px;
+    display:inline-block;
+    border-radius: 3px;
+}
+
+.newText {
+    margin:10px 10px;
+    font-size: small;
+}
+
+#singleNew {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 15px auto;
+    width: 80%;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+  
+  .title-date-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+  
+  
+  .singleImage {
+    width: 80%;
+    margin:0 auto;
+    
+  }
+  
+  .singleImage img {
+    width: 100%;
+    border-radius: 17px;
+    
+  }
+
+#comments {
+    background-color: var(--main-color);
+    color:white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 15px auto;
+    width: 80%;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.nameComment {
+    grid-column: 1 / 3;
+    background-color: rgb(188, 162, 222);
+    border-bottom: 1px solid black;
+}
+
+.textComment {
+    grid-column: 1 / 3;
+    background-color: rgb(188, 162, 222);
+}
+
+.dateComment {
+    text-align: center;
+    display:inline;
+    grid-column: 3 / 4;
+    border-radius: 5px;
+}
+
+.editButton {
+    margin:0 auto;
+}
+
+.commentForm {
+    display: flex;
+    width:100%;
+    text-align: center;
+}
+
+.commentForm > form {
+    display:flex;
+    flex-direction: column;
+    margin:15px auto;
+    background-color: var(--main-color);
+    padding:15px;
+    border-radius: 5px;
+    color:white;
+    width: 80%;
+
+}
+
+.usersTable {
+    margin:10px auto;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  .usersTable thead {
+    background-color: #7c5295;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .usersTable th,
+  .usersTable td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .usersTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .usersTable tr:hover {
+    background-color: #d6a2e8;
+  }
+  
+  .usersTable tbody tr:hover td {
+    color: #fff;
+  }
+  
+  .usersTable tbody tr:hover {
+    cursor: pointer;
+  }
+  
+  .usersTable .updateBtn {
+    background-color: #6e50b6;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .usersTable .updateBtn:hover {
+    background-color: #8d73d6;
+  }
+  
 
 @media screen and (min-width: 792px) {
     .burguermenu {
@@ -254,5 +499,33 @@ img {
         margin:0 5px;
         display:inline-block;
         padding:0 2px;
+    }
+
+    #parent {
+        height: 300px;
+    }
+
+    #alterInfoHome {
+        grid-template-columns: 200px 1fr 200px ;
+        gap:5px;
+        
+    }
+
+    #userInfo {
+        grid-column: 1 / 2;
+        grid-row: 1;
+    }
+
+    .navLinkUser {
+        margin: 0 auto;
+    }
+
+    .teamInfo {
+        grid-column: 3 / 4;
+        grid-row: 1;
+    }
+
+    #alterNews {
+        grid-column: 2 / 3;
     }
 }
