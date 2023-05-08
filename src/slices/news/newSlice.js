@@ -6,10 +6,10 @@ export const newSlice = createSlice({
         //Para captar las noticias
         news1:[],
         news2:[],
-        news3:[],
-
+        singleNew:{},
+        comments:[],
         //Para el cargando.
-        isLoading:false,
+        requestState:'',
 
         //Para subir las noticias
         updated:false,
@@ -17,18 +17,60 @@ export const newSlice = createSlice({
         newText:null,
         newExtract:null,
         newImage:null,
+        newAltImage:null,
         newTags:null,
         newDate:null,
         id_new:null,
+        id_newUser:null,
     },
     reducers: {
         startLoading: (state) => {
-            state.isLoading = true;
+            state.requestState = 'loading';
         },
-        uploadEntry: (state, action) => {
-
+        uploadInput: (state, action) => {
+            
+            state.requestState = 'successfull';
+        },
+        resetRequestState: (state, action) => {
+            state.requestState = ''
+        },
+        requestFailed: (state, action) => {
+            state.requestState = 'failed'
+        },
+        getTheNews: (state, action) => {
+            console.log(action.payload.data1)
+            state.news1 = action.payload.data1
+            state.news2 = action.payload.data2
+            state.requestState = 'successfull'
+            
+        },
+        getSingleNew: (state, action) => {
+            state.newTitle = action.payload.title
+            state.newText = action.payload.text
+            state.id_new = action.payload.id_new
+            state.newExtract = action.payload.extract
+            state.newImage = action.payload.image
+            state.newTags = action.payload.tags
+            state.newDate = action.payload.date
+            state.id_newUser = action.payload.id_user
+            state.newAltImage = action.payload.altImage
+            state.comments = action.payload.comments
+            state.requestState = 'successfull'
+        },
+        deleteAComment: (state, action) => {
+            console.log(action.payload.id)
+            const newComments = state.comments.filter((item)=> item.id_comment != action.payload.id)
+            state.comments = newComments
+            console.log(newComments)
+            state.requestState = 'successfull'
+        },
+        createaComment: (state, action) => {
+            state.comments = action.payload.data
         }
+        
     }
 })
 
-export const { startLoading } = newSlice.actions
+export const {
+     startLoading, uploadInput, resetRequestState, getTheNews, getSingleNew,deleteAComment,createaComment
+     } = newSlice.actions

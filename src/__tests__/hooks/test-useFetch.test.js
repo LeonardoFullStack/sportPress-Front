@@ -33,7 +33,7 @@ describe('consulta', () => {
 
   test('Todas las noticias deberían recibir el estado indicado', async () => {
 
-    const state = 'apropved'
+    const state = 'aproved'
     const url = `/api/news/newsbystate/${state}`;
      
       const method = 'put'

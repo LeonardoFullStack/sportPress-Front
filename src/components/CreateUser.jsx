@@ -46,10 +46,17 @@ export const CreateUser = () => {
               <div className='errors'>
                 Email actualmente en uso. Prueba otro.
               </div>}
+
               {validate == 'serverFailed' &&
               <div className='errors'>
                 Fallo en el servidor. No sé que ha pasado.
               </div>}
+
+              {validate == 'invalid' &&
+              <div className='errors'>
+                Rellena bien todos los campos.
+              </div>}
+
               {
                 validate == 'submitted' ?
                 (<div className='loadingImage'>

@@ -7,6 +7,10 @@ export const NavBar = () => {
     const { email, name, role, isLoading } = useSelector((state) => state.users)
   return (
     <nav>
+          <NavLink to='/' className='navLink'
+          
+          >Home
+          </NavLink>
         {
             name && <>
             <NavLink to='logout' className='navLink'
@@ -17,10 +21,7 @@ export const NavBar = () => {
           
             >Cambiar contraseña
             </NavLink>
-            <NavLink to='collaborator/uploadentry' className='navLink'
-          
-            >Subir noticia
-            </NavLink>
+            
             </>
             
         }
@@ -37,6 +38,26 @@ export const NavBar = () => {
             </>
             
         }
+        {
+            role == 'collaborator' && <>
+            <NavLink to='collaborator/uploadentry' className='navLink'
+          
+          >Subir noticia
+          </NavLink>
+            </>
+            
+        }
+
+{
+            role == 'admin' && <>
+            <NavLink to='admin/updaterole' className='navLink'
+          
+          >Gestionar usuarios
+          </NavLink>
+            </>
+            
+        }
+
           
     </nav>
   )
