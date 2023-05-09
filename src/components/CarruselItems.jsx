@@ -4,14 +4,14 @@ import { getLastNews } from '../store/slices/news/thunk'
 import { NavLink } from 'react-router-dom'
 
 export const CarruselItems = ({ item, index }) => {
-    console.log(item.id_new)
+   
     const { news1, requestState } = useSelector((state) => state.news)
     const dispatch = useDispatch()
     useEffect(() => {
         if ( requestState == 'successfull') {
     
           const childNodes = document.querySelectorAll('.child');
-          console.log(childNodes)
+          
           let activeIndex = 0;
 
       setInterval(() => {
@@ -26,9 +26,7 @@ export const CarruselItems = ({ item, index }) => {
         
       },[])
 
-      const handleClick = (id) => {
-        console.log(id)
-    }
+      
     return (
         <>
         {index == 0  ?

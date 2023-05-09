@@ -26,6 +26,9 @@ export const EditNewState = () => {
                     ID usuario
                 </th>
                 <th>
+                    Consultar
+                </th>
+                <th>
                     Administrar
                 </th>
                 </tr>

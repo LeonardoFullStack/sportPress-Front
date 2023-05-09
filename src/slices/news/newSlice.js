@@ -9,6 +9,11 @@ export const newSlice = createSlice({
         singleNew:{},
         comments:[],
         pendingNews:[],
+        stateNews: {
+            aproved:[],
+            pending:[],
+            rejected:[],
+        },
         //Para el cargando.
         requestState:'',
 
@@ -23,6 +28,7 @@ export const newSlice = createSlice({
         newDate:null,
         id_new:null,
         id_newUser:null,
+        newState: null,
     },
     reducers: {
         startLoading: (state) => {
@@ -39,7 +45,7 @@ export const newSlice = createSlice({
             state.requestState = 'failed'
         },
         getTheNews: (state, action) => {
-            console.log(action.payload.data1)
+            
             state.news1 = action.payload.data1
             state.news2 = action.payload.data2
             state.requestState = 'successfull'
@@ -56,13 +62,14 @@ export const newSlice = createSlice({
             state.id_newUser = action.payload.id_user
             state.newAltImage = action.payload.altImage
             state.comments = action.payload.comments
+            state.newState = action.payload.state
             state.requestState = 'successfull'
         },
         deleteAComment: (state, action) => {
-            console.log(action.payload.id)
+           
             const newComments = state.comments.filter((item)=> item.id_comment != action.payload.id)
             state.comments = newComments
-            console.log(newComments)
+         
             state.requestState = 'successfull'
         },
         createaComment: (state, action) => {
@@ -70,17 +77,26 @@ export const newSlice = createSlice({
         },
         getPendingNewsReducer: (state, action) => {
             state.pendingNews = action.payload.data
-            console.log(state.pendingNews)
+            
         },
         updateStateNew: (state, action) => {
             state.pendingNews = state.pendingNews.filter(news => news.id_new !== action.payload.id_new);
             state.requestState = 'successfullStateNew'
-        }
+        },
+        getStateNewsAproved: (state,action) => {
+            state.stateNews.aproved =  action.payload.aproved
+        },
+        getStateNewsPending: (state,action) => {
+            state.stateNews.pending =  action.payload.pending
+        },
+        getStateNewsRejected: (state,action) => {
+            state.stateNews.rejected =  action.payload.rejected
+        },
         
     }
 })
 
 export const {
      startLoading, uploadInput, resetRequestState, getTheNews, getSingleNew,deleteAComment,createaComment,
-     getPendingNewsReducer, updateStateNew
+     getPendingNewsReducer, updateStateNew, getStateNewsAproved, getStateNewsRejected, getStateNewsPending
      } = newSlice.actions

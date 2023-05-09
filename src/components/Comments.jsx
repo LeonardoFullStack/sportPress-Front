@@ -6,7 +6,7 @@ import { deleteComment } from '../store/slices/news/thunk'
 export const Comments = ({item}) => {
     const { role } = useSelector((state) => state.users)
     const { requestState, id_new } = useSelector((state) => state.news)
-    console.log(requestState)
+    
     const newDate = setNewDate(item.date)
     const dispatch = useDispatch()
     const handleDelete = (ev) => {

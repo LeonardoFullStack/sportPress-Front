@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export const AlterNews = ({item}) => {
 
   const smallText = item.text.substring(0,270)
-  console.log(smallText)
+
   return (
     <>
     <div className='alterNew'>

@@ -33,7 +33,7 @@ export const CreateUser = () => {
       setcaptchaValidate(true)
     }
 
-console.log(validate)
+
   return (
     <>
     <div className='loginForm'>

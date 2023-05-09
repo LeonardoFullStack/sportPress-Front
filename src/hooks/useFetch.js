@@ -11,7 +11,7 @@ const urlMain = 'http://localhost:3000'
  * @returns {Promise<Response>} Una promesa que se resuelve en la respuesta del servidor.
  */
 export const consulta = async(url,method,body) => {
-console.log(url,method,body)
+
     let options={}
     if(method=='post' || method=='put'){
         

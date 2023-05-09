@@ -1,6 +1,6 @@
 import { setNewDate } from "../../../helpers/setDate";
 import { consulta, uploadCloudinary } from "../../../hooks/useFetch";
-import { createaComment, deleteAComment, getPendingNewsReducer, getSingleNew, getTheNews,  startLoading, updateStateNew, uploadInput } from "../../../slices/news/newSlice";
+import { createaComment, deleteAComment, getPendingNewsReducer, getSingleNew,  getStateNewsAproved, getStateNewsPending, getStateNewsRejected, getTheNews,  startLoading, updateStateNew, uploadInput } from "../../../slices/news/newSlice";
 import { requestFailed } from "../../../slices/users/userSlice";
 
 
@@ -24,7 +24,7 @@ export const uploadEntry = (data, id_user) => {
 
 
         try {
-            console.log(data)
+            
             const imageOnCloud = await uploadCloudinary(data.entryImage)
         const body = {
             ...data,
@@ -60,10 +60,10 @@ export const getLastNews = () => {
         try {
             const resp = await consulta(`/api/news/lastnews/`) //noticias del carrusel
             const petition = await resp.json()
-            console.log(petition)
+            
             const resp2 = await consulta(`/api/news/restnews/`) //noticias del carrusel
             const petition2 = await resp2.json()
-            console.log(petition2.data)
+            
             dispatch(getTheNews({data1: petition.data, data2: petition2.data})) 
 
         } catch (error) {
@@ -85,9 +85,9 @@ export const getNewByIdAndComments = (id) => {
         try {
             const resp = await consulta(`/api/news/viewone/${id}`) //noticias del carrusel
             const petition = await resp.json()
-            console.log(petition)
+
             const dateSetted = setNewDate(petition.data.newsLetter[0].date)
-            console.log(dateSetted)
+            
             dispatch(getSingleNew({
                 id_new: petition.data.newsLetter[0].id_new,
                 title: petition.data.newsLetter[0].title,
@@ -98,7 +98,8 @@ export const getNewByIdAndComments = (id) => {
                 date: dateSetted,
                 id_user: petition.data.newsLetter[0].id_user,
                 altImage: petition.data.newsLetter[0].altimage,
-                comments: petition.data.comments
+                comments: petition.data.comments,
+                state: petition.data.newsLetter[0].state
                 }))
         } catch (error) {
             dispatch(requestFailed())
@@ -120,7 +121,7 @@ export const deleteComment = (id) => {
         try {
             const resp = await consulta(`/api/comments/deletecomment/${id}`, 'delete') //noticias del carrusel
             const petition = await resp.json()
-            console.log(petition)
+            
             if (petition.ok) {
                 dispatch(deleteAComment({id: id}))
             }
@@ -154,10 +155,10 @@ export const uploadComment = (text, name, id_user, id_new) => {
 
             const resp = await consulta(`/api/comments/createcomment`, 'post', body) 
             const petition = await resp.json()
-            console.log(petition)
+            
             const resp2 = await consulta(`/api/news/viewone/${id_new}`) //volvemos a coger los comentarios
             const petition2 = await resp2.json()
-            console.log(petition2)
+            
 
             if (petition.ok) {
                 dispatch(createaComment({data: petition2.data.comments}))
@@ -183,7 +184,7 @@ export const getPendingNews = () => {
         try {
             const resp = await consulta(`/api/news/newsbystate/pending`) 
             const petition = await resp.json() 
-            console.log(petition)
+            
             if (petition.ok) {
                 dispatch(getPendingNewsReducer({data: petition.data}))
             }
@@ -212,10 +213,64 @@ export const updateNewState = (newState, idNew) => {
         try {
             const resp = await consulta('/api/news/updatenewstate', 'put', body)
             const petition = await resp.json()
-            console.log(petition)
+            
             if (petition.ok) {
                 dispatch(updateStateNew({id_new: idNew}))
             }
+        } catch (error) {
+            dispatch(requestFailed())
+        }
+    }
+}
+
+export const getNewsByStates = (id_user) => {
+    return async (dispatch, getState) => {
+        const body1 = {
+            state:'pending',
+            id_user
+        }
+
+        const body2 = {
+            state:'aproved',
+            id_user
+        }
+
+        const body3 = {
+            state:'rejected',
+            id_user
+        }
+
+        try {
+            const resp1 = await consulta(`/api/news/newsstateuser/`, 'post', body1) 
+            const resp2 = await consulta(`/api/news/newsstateuser/`, 'post', body2)
+            const resp3 = await consulta(`/api/news/newsstateuser/`, 'post', body3)
+
+            const pending = await resp1.json() 
+            const aproved = await resp2.json()
+            const rejected = await resp3.json()
+
+            
+
+            if (pending.ok) {
+                dispatch(getStateNewsPending({pending: pending.data}))
+            } else {
+                dispatch(getStateNewsPending({pending: []}))
+            }
+
+            if (aproved.ok) {
+                dispatch(getStateNewsAproved({aproved: aproved.data}))
+            } else {
+                dispatch(getStateNewsAproved({aproved: []}))
+            }
+
+            if (rejected.ok) {
+                dispatch(getStateNewsRejected({rejected: rejected.data}))
+            } else {
+                dispatch(getStateNewsRejected({rejected: []}))
+            }
+            
+                
+            
         } catch (error) {
             dispatch(requestFailed())
         }

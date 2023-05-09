@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateNewState } from '../../store/slices/news/thunk'
+import { NavLink } from 'react-router-dom'
 
 export const TableNews = ({item}) => {
     const { requestState } = useSelector((state) => state.news)
@@ -27,6 +28,11 @@ export const TableNews = ({item}) => {
         {item.id_user}
     </td>
     <td>
+        <NavLink to={'../viewone/' + item.id_new} className='navLink'>
+            <button className='classicButton'>consultar</button>
+        </NavLink>
+    </td>
+    <td>
     
     <button onClick={handleApproveClick} className="classicButton">Aprovar</button>
     <button onClick={handleRejectClick} className="redButton">Rechazar</button>
@@ -34,7 +40,7 @@ export const TableNews = ({item}) => {
     </tr>
     {requestState === 'successfullStateNew' && (
         <tr>
-          <td colSpan="4">Noticia modificada correctamente</td>
+          <td colSpan="5">Noticia modificada correctamente</td>
         </tr>
       )}
     </>

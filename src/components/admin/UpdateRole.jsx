@@ -9,7 +9,7 @@ export const UpdateRole = () => {
     useEffect(()=>{
         dispatch(getAllUsers())
     },[])
-    console.log(users)
+    
   return (
     <section>
         <table className='usersTable'>
