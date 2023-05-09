@@ -1,6 +1,6 @@
 
 
-const urlMain = 'http://localhost:3000'
+const urlMain = 'https://sportpressback.onrender.com'
 
 /**
  * Realiza una consulta al servidor utilizando el método y la URL especificados,
