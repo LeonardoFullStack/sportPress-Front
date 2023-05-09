@@ -12,7 +12,7 @@ export const TeamInfo = () => {
     
     const handleChange = (event) => {
         const selectedTeam = event.target.value;
-        console.log(selectedTeam)
+        
         setFormTeam(selectedTeam);
       };
     

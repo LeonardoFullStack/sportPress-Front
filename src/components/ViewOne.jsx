@@ -9,9 +9,9 @@ export const ViewOne = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const { handleChange, serializarFormulario } = useForm('')
-  const { requestState, newTitle, newImage, newDate, newText, comments, id_new } = useSelector((state) => state.news)
+  const { requestState, newState, newTitle, newImage, newDate, newText, comments, id_new } = useSelector((state) => state.news)
   const { name, id_user } = useSelector((state) => state.users)
-  console.log(name)
+
   const handleSubmit = (ev) => {
     ev.preventDefault()
     const data = serializarFormulario(ev.target)
@@ -23,6 +23,7 @@ export const ViewOne = () => {
       dispatch(getNewByIdAndComments(id))
     }
   }, [])
+
   return (
     <>
       <section id='singleNew' style={{ display: 'grid', gridTemplateColumns: '1fr', margin: '15px auto', width: '80%', justifyContent: 'center', border: '1px solid black', borderRadius: '3px' }}>
@@ -46,25 +47,28 @@ export const ViewOne = () => {
           ))
         }
       </section>
-      {
-        name == null ?
-          <section id='unLoggedComments'>
-            <p>
-              Regístrate o haz login para poder comentar!
-            </p>
-          </section>
-          :
+      {newState === 'aproved' &&
+    <>
+        {name == null ?
+            <section id='unLoggedComments'>
+                <p>
+                    Regístrate o haz login para poder comentar!
+                </p>
+            </section>
+            :
+            <div className='commentForm'>
+                <form onSubmit={handleSubmit}>
+                    <div className='formGroup'>
+                        <input type='text' className='formInput' name='text' placeholder='Escribe aquí tu comentario' onChange={handleChange} />
 
-          <div className='commentForm'>
-            <form onSubmit={handleSubmit}>
-              <div className='formGroup'>
-                <input type='text' className='formInput' name='text' placeholder='Escribe aquí tu comentario' onChange={handleChange} />
-                  
-                <input type='submit' className='classicButton' value='Publicar' />
-              </div>
-            </form>
-          </div>
-      }
+                        <input type='submit' className='classicButton' value='Publicar' />
+                    </div>
+                </form>
+            </div>
+        }
+    </>
+}
+
 
     </>
   )

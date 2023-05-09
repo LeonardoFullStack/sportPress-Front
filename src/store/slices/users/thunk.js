@@ -22,17 +22,17 @@ export const checkLogin = ({ email, password }, logged, setlogged) => {
 
         const resp = await consulta(`/api/users`, 'post', body)// cogemos el usuario
         const petition = await resp.json()
-        console.log(petition)
+       
         if (petition.ok) {
 
             let passwordOk = bcrypt.compareSync(password, petition.data[0].password)//verificamos su password
-            console.log(petition.data[0].id_user)
+            
             if (passwordOk) {
-                console.log(passwordOk)
+               
                 dispatch(setUsers({ id_user: petition.data[0].id_user, email: petition.data[0].email, role: petition.data[0].role, name: petition.data[0].name, team: petition.data[0].team }))
                 setlogged('admitted')
                 document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
-                console.log(document.cookie)
+                
             } else {
                 dispatch(loginFailed())
                 setlogged('failed')
@@ -114,9 +114,9 @@ export const changePass = async (body, setvalidate) => {
     
     const resp = await consulta('/api/users/updatepass', 'put', body)
     const petition = await resp.json()
-    console.log(petition)
+   
     setvalidate('successfull')
-    console.log('paso')
+    
 
 }
 
@@ -141,7 +141,7 @@ export const selectTeam = (team, email) => {
         try {
             const resp = await consulta('/api/users/selectteam', 'put', body)
             const petition = await resp.json()
-            console.log(petition)
+            
             if (petition.ok) {
 
                 dispatch(setTeam({team: team}))
@@ -150,7 +150,7 @@ export const selectTeam = (team, email) => {
                 dispatch(requestFailed())
             }
         } catch (error) {
-            console.log(error)
+            
             dispatch(requestFailed())
         }
         
@@ -172,11 +172,11 @@ export const registerUser = (data, setvalidate) => {
         const body = {
             ...data
         }
-        console.log('llego')
+        
         const resp = await consulta(`/api/users/signup`, 'post', body)
-        console.log(resp)
+       
         const petition = await resp.json()
-        console.log(petition)
+        
         
         if (petition.ok) {
             const newUser = {

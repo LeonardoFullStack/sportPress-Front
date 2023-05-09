@@ -46,6 +46,10 @@ export const NavBar = () => {
           
           >Subir noticia
           </NavLink>
+          <NavLink to='collaborator/newsonstates' className='navLink'
+          
+          >Consultar estados
+          </NavLink>
             </>
             
         }

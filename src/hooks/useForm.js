@@ -23,7 +23,7 @@ export const useForm = (estadoInicial) => {
         const data={}
        
         for(let [key,value] of formData){
-            console.log(key,value)
+            
             data[key]=value
 
         }

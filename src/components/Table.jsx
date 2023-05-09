@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateRoleUser } from '../store/slices/users/thunk';
+import { NavLink } from 'react-router-dom'
 
 export const Table = ({item}) => {
     const { emailModified, requestState } = useSelector((state) => state.users)
@@ -17,7 +18,7 @@ export const Table = ({item}) => {
       ];
 
     const handleRole = (ev) => {
-        console.log(item.email, selectedRole)
+        
         dispatch(updateRoleUser(item.email, selectedRole))
 
     }
@@ -40,6 +41,7 @@ export const Table = ({item}) => {
     <td>
         {item.role}
     </td>
+   
     <td>
     <select value={selectedRole} onChange={handleSelectChange}>
       {roles.map((role) => (
