@@ -61,11 +61,14 @@
 
 .alterNewImage {
     max-width: 140px;
+    max-height:80px;
 
     img {
         object-fit: cover;
         border-radius: 53px;
         max-width: 100px;
+        max-height: 100px;
+        margin:5px;
         display:inline-block;
         border-radius: 3px;
     }
@@ -79,4 +82,19 @@
 .alterNew {
     border:1px solid black;
     margin-top:10px;
+    overflow:auto;
+
+    img {
+        float: left;
+        margin-right: 10px;
+        max-width:140px;
+    
+      }
+      
+      p {
+        margin-top: 0;
+      }
 }
+
+
+

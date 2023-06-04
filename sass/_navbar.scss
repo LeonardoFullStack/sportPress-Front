@@ -18,6 +18,10 @@ header {
     height: 100px;
     background: linear-gradient(to right, black, rgb(42, 0, 42), black);
     gap: 5px;
+
+    img {
+        height: 100%;
+    }
     
 }
 
@@ -36,11 +40,13 @@ footer {
         margin: auto auto;
     
     }
+
+    img {
+        height: 100%;
+    }
 }
 
-img {
-    height: 100%;
-}
+
 
 .divLogo {
     display: inline-block;
@@ -86,7 +92,7 @@ img {
         .navLink {
             padding:3px;
             margin: 0 10px;
-            
+
             :hover {
                 transform: scale(1.2);
                 transition: transform .1s;

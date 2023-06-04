@@ -17,6 +17,9 @@ header {
   background: linear-gradient(to right, black, rgb(42, 0, 42), black);
   gap: 5px;
 }
+header img {
+  height: 100%;
+}
 
 footer {
   position: relative;
@@ -32,8 +35,7 @@ footer p {
   color: white;
   margin: auto auto;
 }
-
-img {
+footer img {
   height: 100%;
 }
 
@@ -254,11 +256,14 @@ body {
 
 .alterNewImage {
   max-width: 140px;
+  max-height: 80px;
 }
 .alterNewImage img {
   object-fit: cover;
   border-radius: 53px;
   max-width: 100px;
+  max-height: 100px;
+  margin: 5px;
   display: inline-block;
   border-radius: 3px;
 }
@@ -271,6 +276,15 @@ body {
 .alterNew {
   border: 1px solid black;
   margin-top: 10px;
+  overflow: auto;
+}
+.alterNew img {
+  float: left;
+  margin-right: 10px;
+  max-width: 140px;
+}
+.alterNew p {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

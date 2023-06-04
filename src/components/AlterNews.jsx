@@ -13,14 +13,12 @@ export const AlterNews = ({item}) => {
    
     </NavLink>
     <div className='imageAndText'>
-    <div className='alterNewImage'>
     <img src={item.image} alt={item.altimage} />
-    </div>
-    <div className='textAlterNew'>
+
     <p>
       {smallText}... <NavLink to={'viewone/' + item.id_new} className='navLink'>Leer más</NavLink> 
     </p>
-    </div>
+
     </div>
     </div>
     </>
