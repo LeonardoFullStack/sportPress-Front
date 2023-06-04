@@ -1,0 +1,82 @@
+#alterInfoHome {
+    display:grid;
+    grid-template-columns: 1fr ;
+    margin: 15px 10px 50px 10px;
+    font-size: 0.75rem;
+}
+
+#userInfo {
+    position: sticky;
+    display:flex;
+    flex-direction: column;
+    border-radius: 3px;
+    background-color: black;
+    padding:5px;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin:10px auto 0 auto;
+    height:100px;
+    padding: 10px;
+    color:white;
+
+    p , a {
+        background-color: black;
+    }
+
+}
+
+.userInfoKey, .userInfoValue {
+    color:white;
+}
+
+.teamInfo {
+    display:flex;
+    flex-direction: column;
+    border-radius: 3px;
+    background-color: black;
+    border: 1px solid chartreuse; 
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin:10px auto 0 auto;
+    height:100px;
+    padding: 10px 5px 10px 5px;
+}
+
+.teamHeader {
+    color:white;
+    margin-bottom: 5px;
+}
+
+.imgTeam {
+    height: 90px;
+
+    img {
+        width:100%;
+        object-fit: cover;
+        border-radius: 53px;
+    }
+}
+
+.alterNewImage {
+    max-width: 140px;
+
+    img {
+        object-fit: cover;
+        border-radius: 53px;
+        max-width: 100px;
+        display:inline-block;
+        border-radius: 3px;
+    }
+}
+
+.newText {
+    margin:10px 10px;
+    font-size: small;
+}
+
+.alterNew {
+    border:1px solid black;
+    margin-top:10px;
+}

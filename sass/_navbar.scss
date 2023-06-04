@@ -1,0 +1,173 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    background-color: $main-color;
+}
+
+header {
+    position: relative;
+    display:grid;
+    grid-template-columns: 100px 1fr 100px;
+    height: 100px;
+    background: linear-gradient(to right, black, rgb(42, 0, 42), black);
+    gap: 5px;
+    
+}
+
+footer {
+    position: relative;
+    display:grid;
+    grid-template-columns: 100px 1fr 100px;
+    background: linear-gradient(to right, black, rgb(42, 0, 42), black);
+    height:100px;
+
+    p {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color:white;
+        margin: auto auto;
+    
+    }
+}
+
+img {
+    height: 100%;
+}
+
+.divLogo {
+    display: inline-block;
+    grid-column: 1 / 2;
+    height:70px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin:auto auto;
+
+}
+
+.burguermenu {
+    display:inline-block;
+    cursor:pointer;
+    grid-column: 3 / 4;
+    margin: auto auto;
+
+    span {
+        color:white;
+        background-color: transparent;
+    }
+}
+
+.burguerOpen {
+
+    position:absolute;
+    top: 39px;
+    right: 65px;
+    width:93px;
+    height: auto;
+    z-index: 10000;
+    background-color: white;
+    overflow:hidden;
+    border:1px solid black;
+
+    nav {
+
+        a{
+            margin-top: 3px;
+            display: inline-block;
+        
+        }
+
+        .navLink {
+            padding:3px;
+            margin: 0 10px;
+            
+            :hover {
+                transform: scale(1.2);
+                transition: transform .1s;
+                border-radius: 5px;
+                background-color: red;
+            }
+        }
+    }
+
+}
+
+.navLink {
+
+    display: block;
+    background-color: white;
+    margin: 4px 0;
+    font-weight: bold;
+    color:black;
+    text-decoration: none;
+
+}
+
+
+nav {
+    .navLink {
+        padding:3px;
+        margin: 0 10px;
+
+        :hover {
+            transform: scale(1.2);
+            transition: transform .1s;
+            border-radius: 5px;
+            background-color: red;
+        }
+    }
+
+
+}
+
+nav .navLink:hover {
+    transform: scale(1.2);
+    transition: transform .1s;
+    border-radius: 5px;
+}
+
+.bigMenu {
+    display:none;
+    grid-column: 2 / 4;
+    margin: auto auto;
+    background-color: transparent
+}
+
+.displayNone {
+    display:none;
+}
+
+@media screen and (min-width: 792px) {
+    .burguermenu {
+        display:none;
+    }
+
+    .bigMenu {
+        display:inline-flex;
+        flex-direction: row;
+        grid-column: 2 / 3;
+        width: 100%
+    }
+
+    .burguerOpen {
+        display:none;
+    }
+
+    nav {
+        display: flex;
+        margin: 0 auto;
+        background-color: transparent;
+    }
+
+    .navLink {
+        margin:0 5px;
+        display:inline-block;
+        padding:0 2px;
+    }
+}

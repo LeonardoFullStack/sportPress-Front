@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  background-color: rgb(213, 205, 194);
+}
+
+header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  height: 100px;
+  background: linear-gradient(to right, black, rgb(42, 0, 42), black);
+  gap: 5px;
+}
+
+footer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  background: linear-gradient(to right, black, rgb(42, 0, 42), black);
+  height: 100px;
+}
+footer p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin: auto auto;
+}
+
+img {
+  height: 100%;
+}
+
+.divLogo {
+  display: inline-block;
+  grid-column: 1/2;
+  height: 70px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: auto auto;
+}
+
+.burguermenu {
+  display: inline-block;
+  cursor: pointer;
+  grid-column: 3/4;
+  margin: auto auto;
+}
+.burguermenu span {
+  color: white;
+  background-color: transparent;
+}
+
+.burguerOpen {
+  position: absolute;
+  top: 39px;
+  right: 65px;
+  width: 93px;
+  height: auto;
+  z-index: 10000;
+  background-color: white;
+  overflow: hidden;
+  border: 1px solid black;
+}
+.burguerOpen nav a {
+  margin-top: 3px;
+  display: inline-block;
+}
+.burguerOpen nav .navLink {
+  padding: 3px;
+  margin: 0 10px;
+}
+.burguerOpen nav .navLink :hover {
+  transform: scale(1.2);
+  transition: transform 0.1s;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.navLink {
+  display: block;
+  background-color: white;
+  margin: 4px 0;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+nav .navLink {
+  padding: 3px;
+  margin: 0 10px;
+}
+nav .navLink :hover {
+  transform: scale(1.2);
+  transition: transform 0.1s;
+  border-radius: 5px;
+  background-color: red;
+}
+
+nav .navLink:hover {
+  transform: scale(1.2);
+  transition: transform 0.1s;
+  border-radius: 5px;
+}
+
+.bigMenu {
+  display: none;
+  grid-column: 2/4;
+  margin: auto auto;
+  background-color: transparent;
+}
+
+.displayNone {
+  display: none;
+}
+
+@media screen and (min-width: 792px) {
+  .burguermenu {
+    display: none;
+  }
+  .bigMenu {
+    display: inline-flex;
+    flex-direction: row;
+    grid-column: 2/3;
+    width: 100%;
+  }
+  .burguerOpen {
+    display: none;
+  }
+  nav {
+    display: flex;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  .navLink {
+    margin: 0 5px;
+    display: inline-block;
+    padding: 0 2px;
+  }
+}
+body {
+  background-color: rgb(213, 205, 194);
+}
+
+#mainNews {
+  width: 80%;
+  margin: 10px auto;
+  overflow: auto;
+}
+
+#parent {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+}
+.child h1 {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.child img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.child.active {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.imageTitle {
+  color: white;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#alterInfoHome {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 15px 10px 50px 10px;
+  font-size: 0.75rem;
+}
+
+#userInfo {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: black;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin: 10px auto 0 auto;
+  height: 100px;
+  padding: 10px;
+  color: white;
+}
+#userInfo p, #userInfo a {
+  background-color: black;
+}
+
+.userInfoKey, .userInfoValue {
+  color: white;
+}
+
+.teamInfo {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: black;
+  border: 1px solid chartreuse;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin: 10px auto 0 auto;
+  height: 100px;
+  padding: 10px 5px 10px 5px;
+}
+
+.teamHeader {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.imgTeam {
+  height: 90px;
+}
+.imgTeam img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 53px;
+}
+
+.alterNewImage {
+  max-width: 140px;
+}
+.alterNewImage img {
+  object-fit: cover;
+  border-radius: 53px;
+  max-width: 100px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.newText {
+  margin: 10px 10px;
+  font-size: small;
+}
+
+.alterNew {
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
