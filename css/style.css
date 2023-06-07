@@ -6,15 +6,15 @@
 }
 
 main {
-  background-color: rgb(213, 205, 194);
+  background-color: white;
 }
 
 header {
   position: relative;
   display: grid;
   grid-template-columns: 100px 1fr 100px;
-  height: 100px;
-  background: linear-gradient(to right, black, rgb(42, 0, 42), black);
+  height: 60px;
+  background: rgb(3, 3, 3);
   gap: 5px;
 }
 header img {
@@ -24,9 +24,9 @@ header img {
 footer {
   position: relative;
   display: grid;
-  grid-template-columns: 100px 1fr 100px;
-  background: linear-gradient(to right, black, rgb(42, 0, 42), black);
-  height: 100px;
+  place-items: center;
+  background: black;
+  height: 60px;
 }
 footer p {
   display: flex;
@@ -86,7 +86,6 @@ footer img {
 
 .navLink {
   display: block;
-  background-color: white;
   margin: 4px 0;
   font-weight: bold;
   color: black;
@@ -115,6 +114,9 @@ nav .navLink:hover {
   grid-column: 2/4;
   margin: auto auto;
   background-color: transparent;
+}
+.bigMenu .navLink {
+  background-color: white;
 }
 
 .displayNone {
@@ -146,7 +148,7 @@ nav .navLink:hover {
   }
 }
 body {
-  background-color: rgb(213, 205, 194);
+  background-color: white;
 }
 
 #mainNews {
@@ -208,22 +210,37 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 3px;
-  background-color: black;
+  background: rgb(204, 200, 200);
   padding: 5px;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 220px;
   margin: 10px auto 0 auto;
-  height: 100px;
+  height: 130px;
   padding: 10px;
   color: white;
+  border: 2px solid black;
 }
 #userInfo p, #userInfo a {
-  background-color: black;
+  font-weight: bold;
+  color: black;
+}
+#userInfo button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .userInfoKey, .userInfoValue {
   color: white;
+}
+
+h2 {
+  padding: 5px;
+  border-bottom: 2px solid black;
+  margin-bottom: 3px;
 }
 
 .teamInfo {
@@ -274,7 +291,7 @@ body {
 }
 
 .alterNew {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   margin-top: 10px;
   overflow: auto;
 }
@@ -286,5 +303,48 @@ body {
 .alterNew p {
   margin-top: 0;
 }
+
+#singleNew {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  margin: 15px auto;
+  width: 95%;
+  border: 1px solid black;
+  border-radius: 3px;
+  height: auto;
+}
+#singleNew .singleImage {
+  grid-row: 2/3;
+  border-radius: 3px;
+}
+#singleNew .singleImage img {
+  width: 100%;
+  border-radius: 3px;
+}
+#singleNew .title-date-container {
+  grid-row: 1/2;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 20px min-content;
+}
+#singleNew .title-date-container .date {
+  grid-row: 1/2;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  width: 100%;
+}
+#singleNew .title-date-container .title {
+  margin-top: 10px;
+  grid-row: 2/3;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.newText {
+  height: auto;
+}
+
+/* style={{ display: 'grid', gridTemplateColumns: '1fr', margin: '15px auto', width: '80%', justifyContent: 'center', border: '1px solid black', borderRadius: '3px' }} */
 
 /*# sourceMappingURL=style.css.map */

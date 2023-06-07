@@ -10,24 +10,40 @@
     display:flex;
     flex-direction: column;
     border-radius: 3px;
-    background-color: black;
+    background: rgb(204, 200, 200);
     padding:5px;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 220px;
     margin:10px auto 0 auto;
-    height:100px;
+    height:130px;
     padding: 10px;
     color:white;
+    border:2px solid black;
 
     p , a {
-        background-color: black;
+        font-weight: bold;
+        color:black;
+    }
+
+    button {
+        margin-top:5px;
+        margin-bottom:5px;
+        border:none;
+        padding:5px;
+        cursor:pointer;
     }
 
 }
 
 .userInfoKey, .userInfoValue {
     color:white;
+}
+
+h2 {
+    padding:5px;
+    border-bottom:2px solid black;
+    margin-bottom:3px;
 }
 
 .teamInfo {
@@ -80,7 +96,7 @@
 }
 
 .alterNew {
-    border:1px solid black;
+    border-bottom:1px solid black;
     margin-top:10px;
     overflow:auto;
 
@@ -95,6 +111,56 @@
         margin-top: 0;
       }
 }
+
+#singleNew {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    margin: 15px auto;
+    width: 95%;
+    border: 1px solid black;
+    border-radius: 3px;
+    height: auto;
+
+
+    .singleImage {
+        grid-row: 2 / 3;
+        border-radius: 3px;
+        img {
+            width:100%;
+            border-radius: 3px;
+        };
+        
+    }
+
+    .title-date-container {
+        grid-row: 1 / 2;
+        display:grid;
+        place-items:center;
+        grid-template-rows: 20px min-content;
+
+        .date {
+            grid-row: 1 / 2;
+            border-bottom: 1px solid grey;
+            text-align:center;
+            width: 100%;
+        }
+
+        .title {
+            margin-top: 10px;
+            grid-row: 2 / 3;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        
+    }
+}
+
+.newText {
+    height: auto;
+}
+/* style={{ display: 'grid', gridTemplateColumns: '1fr', margin: '15px auto', width: '80%', justifyContent: 'center', border: '1px solid black', borderRadius: '3px' }} */
 
 
 

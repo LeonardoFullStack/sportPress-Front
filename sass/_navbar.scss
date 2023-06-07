@@ -15,8 +15,8 @@ header {
     position: relative;
     display:grid;
     grid-template-columns: 100px 1fr 100px;
-    height: 100px;
-    background: linear-gradient(to right, black, rgb(42, 0, 42), black);
+    height: 60px;
+    background: rgb(3, 3, 3);
     gap: 5px;
 
     img {
@@ -28,9 +28,9 @@ header {
 footer {
     position: relative;
     display:grid;
-    grid-template-columns: 100px 1fr 100px;
-    background: linear-gradient(to right, black, rgb(42, 0, 42), black);
-    height:100px;
+    place-items:center;
+    background: black;
+    height:60px;
 
     p {
         display: flex;
@@ -105,9 +105,7 @@ footer {
 }
 
 .navLink {
-
     display: block;
-    background-color: white;
     margin: 4px 0;
     font-weight: bold;
     color:black;
@@ -142,7 +140,11 @@ nav .navLink:hover {
     display:none;
     grid-column: 2 / 4;
     margin: auto auto;
-    background-color: transparent
+    background-color: transparent;
+
+    .navLink {
+        background-color: white;
+    }
 }
 
 .displayNone {
