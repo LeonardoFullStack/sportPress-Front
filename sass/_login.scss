@@ -1,0 +1,33 @@
+@import 'variables';
+
+.loginForm form {
+    background-color: $dark-grey;
+    display: grid;
+    grid-template-rows: 60px 1fr 1fr;
+    width: 80%;
+    margin: 60px auto;
+    padding:10px;
+    height: 50vh;
+    border-radius: 5px;
+
+    h1 {
+        display:grid;
+        place-items: center;
+        grid-row: 1 / 2;
+    }
+
+    .classicButton {
+        font-size: 2rem;    
+        width: 280px;  
+        margin:0px;
+        margin-top: 5px;
+        margin-bottom:5px;
+    }
+
+    
+}
+
+.inputsLogin {
+    display: grid;
+    grid-row: 2 / 3;
+}

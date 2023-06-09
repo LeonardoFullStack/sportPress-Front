@@ -39,8 +39,8 @@ export const ViewOne = () => {
         </div>
       </section>
 
-      <section>
-        Comentarios ({comments.length})
+      <section id='allComments'>
+       <h2> Comentarios ({comments.length}) </h2>
         {
           comments.map((item) => (
             <Comments item={item} key={item.id_comment} />
