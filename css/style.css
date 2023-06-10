@@ -359,6 +359,10 @@ h2 {
 }
 #comments .dateComment {
   grid-column: 3/4;
+  color: white;
+}
+#comments .nameComment {
+  color: white;
 }
 
 .commentData {

@@ -1,3 +1,4 @@
+import { newAuth0User } from "../../../helpers/setAuth0User";
 import { consulta } from "../../../hooks/useFetch";
 import { getTheUsers, loginFailed, requestFailed, roleModified, setTeam, setUsers, startLoadingUsers } from "../../../slices/users/userSlice"
 import bcrypt from 'bcryptjs';
@@ -46,6 +47,39 @@ export const checkLogin = ({ email, password }, logged, setlogged) => {
 
     }
 
+}
+
+export const auth0Login =  (user, setvalidate) => {
+
+    return async (dispatch, getState) => {
+        dispatch(startLoadingUsers())
+        console.log(user)
+        const newUser = newAuth0User(user)
+        
+
+        try {
+            const resp = await consulta(`/api/users`, 'post', user)
+            const petition = await resp.json()
+            console.log(petition)
+
+            if (petition.ok) {
+                const userForSlice = {
+                    email: petition.data[0].email,
+                    role: petition.data[0].role,
+                    name: petition.data[0].name,
+                    id_user: petition.data[0].id_user,
+                    team: petition.data[0].team
+                }
+                dispatch(setUsers({...userForSlice}));
+                document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
+                setvalidate('successfull')
+            } else {
+                registerUser(newUser, setvalidate)
+            }
+        } catch (error) {
+            
+        }
+    }
 }
 
 

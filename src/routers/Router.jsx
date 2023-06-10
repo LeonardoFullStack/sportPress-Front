@@ -11,6 +11,7 @@ import { ViewOne } from '../components/ViewOne'
 import { UpdateRole } from '../components/admin/UpdateRole'
 import { EditNewState } from '../components/editor/EditNewState'
 import { NewsOnStates } from '../components/collaborator/NewsOnStates'
+import { Auth0 } from '../components/Auth0'
 
 export const Router = () => {
 
@@ -20,6 +21,7 @@ export const Router = () => {
     
     <Routes>
     <Route path='/' element={<Home />} />
+    <Route path='/auth0' element={<Auth0 />} />
     <Route path='/login' element={<Login />} />
     <Route path='/logout' element={<LogOut />} />
     <Route path='/viewone/:id' element={<ViewOne />} />

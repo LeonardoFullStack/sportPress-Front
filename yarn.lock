@@ -15,6 +15,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@auth0/auth0-react@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@auth0/auth0-react@npm:2.1.0"
+  dependencies:
+    "@auth0/auth0-spa-js": ^2.0.4
+  peerDependencies:
+    react: ^16.11.0 || ^17 || ^18
+    react-dom: ^16.11.0 || ^17 || ^18
+  checksum: f1e480d7ab79bf4b1e621f8d06172c658ac1a2fe5bcea71df7ca29afd2f642020c040865077fb7974aec2b33c5c8c7dba5d438b34e0c4478258ed0eaeef03066
+  languageName: node
+  linkType: hard
+
+"@auth0/auth0-spa-js@npm:^2.0.4":
+  version: 2.0.7
+  resolution: "@auth0/auth0-spa-js@npm:2.0.7"
+  checksum: 19ef304a805ff978889d8849362f45209bec8294788023a576ae50c10325e27d549819b0f9b5d547d48d1f6fa0720baa738e5d936a985e3418baef56866d5270
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.18.6, @babel/code-frame@npm:^7.21.4":
   version: 7.21.4
   resolution: "@babel/code-frame@npm:7.21.4"
@@ -6660,6 +6679,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "sportpress-front@workspace:."
   dependencies:
+    "@auth0/auth0-react": ^2.1.0
     "@babel/core": ^7.21.8
     "@babel/plugin-syntax-async-generators": ^7.8.4
     "@babel/plugin-syntax-object-rest-spread": ^7.8.3

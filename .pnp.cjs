@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@auth0/auth0-react", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:2.1.0"],\
             ["@babel/core", "npm:7.21.8"],\
             ["@babel/plugin-syntax-async-generators", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:7.8.4"],\
             ["@babel/plugin-syntax-object-rest-spread", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:7.8.3"],\
@@ -73,6 +74,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ampproject/remapping", "npm:2.2.1"],\
             ["@jridgewell/gen-mapping", "npm:0.3.3"],\
             ["@jridgewell/trace-mapping", "npm:0.3.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@auth0/auth0-react", [\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/@auth0-auth0-react-npm-2.1.0-57029e64b4-f1e480d7ab.zip/node_modules/@auth0/auth0-react/",\
+          "packageDependencies": [\
+            ["@auth0/auth0-react", "npm:2.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:2.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@auth0-auth0-react-virtual-85e2ce805e/0/cache/@auth0-auth0-react-npm-2.1.0-57029e64b4-f1e480d7ab.zip/node_modules/@auth0/auth0-react/",\
+          "packageDependencies": [\
+            ["@auth0/auth0-react", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:2.1.0"],\
+            ["@auth0/auth0-spa-js", "npm:2.0.7"],\
+            ["@types/react", "npm:18.2.0"],\
+            ["@types/react-dom", "npm:18.2.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@auth0/auth0-spa-js", [\
+        ["npm:2.0.7", {\
+          "packageLocation": "./.yarn/cache/@auth0-auth0-spa-js-npm-2.0.7-a284081efe-19ef304a80.zip/node_modules/@auth0/auth0-spa-js/",\
+          "packageDependencies": [\
+            ["@auth0/auth0-spa-js", "npm:2.0.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8825,6 +8862,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["sportpress-front", "workspace:."],\
+            ["@auth0/auth0-react", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:2.1.0"],\
             ["@babel/core", "npm:7.21.8"],\
             ["@babel/plugin-syntax-async-generators", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:7.8.4"],\
             ["@babel/plugin-syntax-object-rest-spread", "virtual:2896a76a43422451f3d23cad710f7d4438cb7fc966bc8301fbd858320823b4329e32088b1acffb9f6231f2942cb4214d00bff0279678fe7cbde6d4f824c8c5fe#npm:7.8.3"],\
