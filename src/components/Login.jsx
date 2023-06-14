@@ -52,7 +52,7 @@ export const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className='formGroup'>
           <div className="divLogo">
-          <img src="../src/assets/logosportpress.png"/>
+          <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
           </div>
 
           <h1>Login</h1>

@@ -23,7 +23,7 @@ function App() {
     <>
     <header>
     <div className="divLogo">
-      <img src="../src/assets/logosportpress.png"/>
+      <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
     </div>
     <div className="burguermenu">
     <span className="material-symbols-outlined">
@@ -45,7 +45,7 @@ function App() {
     </main>
       <footer>
       <div className="divLogo">
-      <img src="../src/assets/logosportpress.png"/>
+      <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
     </div>
     <p>
     ® SportPress todos los derechos reservados 

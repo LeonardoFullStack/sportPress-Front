@@ -49,7 +49,7 @@ export const CreateUser = () => {
            </h1>
 
            <div className="divLogo">
-              <img src="../src/assets/logosportpress.png"/>
+              <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
           </div>
 
                 <input type='text' className='formInput' name='email' placeholder='E-mail' onChange={handleChange}/>

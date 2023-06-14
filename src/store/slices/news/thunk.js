@@ -61,8 +61,9 @@ export const getLastNews = () => {
             const resp = await consulta(`/api/news/lastnews/`) //noticias del carrusel
             const petition = await resp.json()
             
-            const resp2 = await consulta(`/api/news/restnews/`) //noticias del carrusel
+            const resp2 = await consulta(`/api/news/restnews/`) //resto de noticias
             const petition2 = await resp2.json()
+            console.log(petition2)
             
             dispatch(getTheNews({data1: petition.data, data2: petition2.data})) 
 
