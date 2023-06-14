@@ -4,12 +4,15 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../store/slices/users/thunk';
 import { Navigate } from 'react-router-dom'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { useAuth0 } from '@auth0/auth0-react' 
 
 export const CreateUser = () => {
     const {handleChange, enviado, serializarFormulario} = useForm('');
+    const {loginWithRedirect} = useAuth0()
     const dispatch = useDispatch();
     const [validate, setvalidate] = useState('')
     const [captchaValidate, setcaptchaValidate] = useState(false)
+
     const handleSubmit = (ev) => {
         ev.preventDefault();
         const data = serializarFormulario(ev.target)
@@ -48,9 +51,6 @@ export const CreateUser = () => {
              
            </h1>
 
-           <div className="divLogo">
-              <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
-          </div>
 
                 <input type='text' className='formInput' name='email' placeholder='E-mail' onChange={handleChange}/>
                 
@@ -84,7 +84,12 @@ export const CreateUser = () => {
                 <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
               </div>)
               :
+              <>
               <input type='submit' className='classicButton' value='Registrarme ya'/>
+              <button onClick={() => loginWithRedirect()}>
+                el googles
+              </button>
+              </>
               }
 
                 

@@ -1,6 +1,9 @@
 
 
-const urlMain = 'https://sportpressback.onrender.com'
+const urlMain = 'http://localhost:3000'
+
+//https://sportpressback.onrender.com
+//http://localhost:3000
 
 /**
  * Realiza una consulta al servidor utilizando el método y la URL especificados,
@@ -10,37 +13,37 @@ const urlMain = 'https://sportpressback.onrender.com'
  * @param {Object} [body] - El cuerpo de datos a enviar en formato JSON (opcional, solo para post y put).
  * @returns {Promise<Response>} Una promesa que se resuelve en la respuesta del servidor.
  */
-export const consulta = async(url,method,body) => {
+export const consulta = async (url, method, body) => {
 
-    let options={}
-    if(method=='post' || method=='put'){
-        
-       const data={...body};
-         options={
-            method:method,
-            body:JSON.stringify(data),
-            headers:{
-                'Content-type':'application/json'
-            }
-        }
+  let options = {}
+  if (method == 'post' || method == 'put') {
+
+    const data = { ...body };
+    options = {
+      method: method,
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json'
+      }
     }
-    if(method=='delete'){
-        const data={...body};
-         options={
-            method:method,
-            body:JSON.stringify(data),
-            headers:{
-                'Content-type':'application/json'
-            }
-        }
+  }
+  if (method == 'delete') {
+    const data = { ...body };
+    options = {
+      method: method,
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json'
+      }
     }
-    if(method=='get'){
-        options={
-            method: method,
-        }
+  }
+  if (method == 'get') {
+    options = {
+      method: method,
     }
-    
-      return await fetch(`${urlMain}${url}`,options);
+  }
+
+  return await fetch(`${urlMain}${url}`, options);
 }
 
 
@@ -50,21 +53,43 @@ export const consulta = async(url,method,body) => {
  * @returns {string} La URL del archivo subido
  */
 export const uploadCloudinary = async (file) => {
-    const formData = new FormData();
-    formData.append('file', file)
-    formData.append('upload_preset', 'ylrjapdu')
-    const options = {
-      method: 'POST',
-      body: formData
-    }
-  
-    try {
-      const petition = await fetch('https://api.cloudinary.com/v1_1/dnxliek6h/image/upload', options)
-      const json = await petition.json()
-
-      return json.url 
-    } catch (error) {
-      return 'Error al subir la imagen'
-    }
+  const formData = new FormData();
+  formData.append('file', file)
+  formData.append('upload_preset', 'ylrjapdu')
+  const options = {
+    method: 'POST',
+    body: formData
   }
+
+  try {
+    const petition = await fetch('https://api.cloudinary.com/v1_1/dnxliek6h/image/upload', options)
+    const json = await petition.json()
+
+    return json.url
+  } catch (error) {
+    return 'Error al subir la imagen'
+  }
+}
+
+export const auth0Consulta = async ({email,name,password}) => {
+
+  const newBody = {
+    email,
+    name,
+    password,
+    connection: 'Username-Password-Authentication'
+  }
+  console.log(newBody)
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(newBody),
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_AUTH0_TOKEN}`
+    }
+
+
+  }
+  return await fetch(`https://${import.meta.env.VITE_AUTH0_DOMAIN}/api/v2/users`, options)
+}
 

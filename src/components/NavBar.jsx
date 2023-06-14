@@ -35,7 +35,7 @@ export const NavBar = () => {
             </NavLink>
             <NavLink to='createuser' className='navLink'
           
-            >Registrarse
+            >Registro
             </NavLink>
             </>
             

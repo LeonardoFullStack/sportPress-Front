@@ -50,17 +50,15 @@ export const Login = () => {
       <div className='loginForm'>
         
         <form onSubmit={handleSubmit}>
-          <div className='formGroup'>
-          <div className="divLogo">
-          <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
-          </div>
+          
 
           <h1>Login</h1>
 
+          <div className='inputsLogin'>
             <input type='text' className='formInput' name='email' placeholder='Email' onChange={handleChange} />
             
             <input type='password' className='formInput' name='password' placeholder='Password' onChange={handleChange} />
-
+          </div>
             {isLoading ?
               (<div className='loadingImage'>
                 <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
@@ -79,7 +77,7 @@ export const Login = () => {
                 Usuario o contraseña incorrecta.
               </div>}
 
-          </div>
+          
         </form>
       </div>
 

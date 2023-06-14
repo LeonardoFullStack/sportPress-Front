@@ -10,7 +10,7 @@ export const Table = ({item}) => {
     const dispatch = useDispatch()
 
     const roles = [
-        "administrator",
+        "Admin",
         "moderator",
         "user",
         "collaborator",

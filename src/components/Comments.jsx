@@ -9,29 +9,35 @@ export const Comments = ({item}) => {
     
     const newDate = setNewDate(item.date)
     const dispatch = useDispatch()
+
     const handleDelete = (ev) => {
         dispatch(deleteComment(item.id_comment))
     }
+
   return (
 
     <>
     <article id='comments'>
+    <div className='commentData'>
     <p className='nameComment'>
        {item.name} :
     </p>
     <p className='dateComment'>
         {newDate}
     </p>
+    
     <p className='textComment'>
     {item.text}
     </p>
+    
     <div className='editButton'>
         {
             role == 'moderator' &&
-            <button className='classicButton' onClick={handleDelete}>
+            <button className='redButton' onClick={handleDelete}>
                 eliminar
             </button>
         }
+    </div>
     </div>
     
     </article>

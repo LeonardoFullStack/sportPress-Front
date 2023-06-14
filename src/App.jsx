@@ -22,9 +22,6 @@ function App() {
   return (
     <>
     <header>
-    <div className="divLogo">
-      <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
-    </div>
     <div className="burguermenu">
     <span className="material-symbols-outlined">
     menu
@@ -44,9 +41,7 @@ function App() {
     <Router/>
     </main>
       <footer>
-      <div className="divLogo">
-      <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
-    </div>
+
     <p>
     ® SportPress todos los derechos reservados 
     </p>

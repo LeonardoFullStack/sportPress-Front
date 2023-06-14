@@ -28,10 +28,12 @@
     "react-google-recaptcha": "^2.1.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.0",
+    "sass": "^1.62.1",
     "vite-plugin-env": "^1.0.1",
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
+    "@auth0/auth0-react": "^2.1.0",
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
