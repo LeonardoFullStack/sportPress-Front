@@ -1,11 +1,11 @@
 
 
-export const newAuth0User = ({given_name, email}) => {
-    const thisDate = Date.now()
+export const newAuth0User = ({nickname, email}) => {
+    const thisDate = Date.now().toString()
     const newUser = {
-        name: given_name,
+        name: nickname,
         email,
-        password: thisDate
+        password: thisDate,
     }
     return newUser
 }

@@ -53,4 +53,5 @@ punto en el que me encuentro:
 hay que poner la función de logout del auth0 en el logout mío.
 probar si el thunk funciona al llamar a registerUser,
 preparar el catch
+el cambio de rol a admin no funciona
 
