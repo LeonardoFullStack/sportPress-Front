@@ -50,8 +50,12 @@ Todas las contraseñas son 1234 .
 | Leonardo  | leonardo@gmail.com | administrador   |
 
 punto en el que me encuentro:
-hay que poner la función de logout del auth0 en el logout mío.
-probar si el thunk funciona al llamar a registerUser,
-preparar el catch
+validación de contraseñas para que funcione con el auth0
+quitar console.logs
+mejorar el carrusel
+el cambio de contraseña no funcionará con auth0
+remaquetar primer nivel (noticias, login y registro) en mobile.first
 el cambio de rol a admin no funciona
+el token de auth0 no funcionará, ya que tenia una expiracion de una hora
+las fechas no funcionan correctamente
 

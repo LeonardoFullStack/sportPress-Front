@@ -16,7 +16,7 @@ header {
     display:grid;
     grid-template-columns: 100px 1fr 100px;
     height: 60px;
-    background: rgb(3, 3, 3);
+    background: linear-gradient(to right,white 45%, #1E2022) ;
     gap: 5px;
 
     img {
@@ -51,9 +51,9 @@ footer {
 .divLogo {
     display: inline-block;
     grid-column: 1 / 2;
-    height:70px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    height:42px;
     margin:auto auto;
+    margin-left: 15px;
 
 }
 

@@ -22,6 +22,9 @@ function App() {
   return (
     <>
     <header>
+    <div className="divLogo">
+    <img alt="logo de la empresa" src="images/logoonlyletters.png"/>
+    </div>
     <div className="burguermenu">
     <span className="material-symbols-outlined">
     menu

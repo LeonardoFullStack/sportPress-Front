@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { checkCookie, checkLogin } from '../store/slices/users/thunk'
 import { useCookie } from '../hooks/useCookie'
 import { Navigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react' 
 
 export const Login = () => {
 
   const { formulario, handleChange, enviado, setEnviado, serializarFormulario, setFormulario } = useForm('')
   const { email, name, role, isLoading } = useSelector((state) => state.users)
+  const {loginWithRedirect} = useAuth0()
   const dispatch = useDispatch()
   const [logged, setlogged] = useState('unLogged')
 
@@ -51,8 +53,10 @@ export const Login = () => {
         
         <form onSubmit={handleSubmit}>
           
-
-          <h1>Login</h1>
+        <div className='bigLogo'>
+            <img alt='logo completo' src='images/logoyletras.png'/>
+          </div>
+          
 
           <div className='inputsLogin'>
             <input type='text' className='formInput' name='email' placeholder='Email' onChange={handleChange} />
@@ -64,8 +68,15 @@ export const Login = () => {
                 <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
               </div>)
               :
-              (<input type='submit' className='classicButton' value='entrar' />)
+              (<input type='submit' className='entryButton' value=''/>)
             }
+          <a className='pointer' onClick={() => loginWithRedirect()}>
+            <div className='googleLink'>
+              <p>
+                Entrar con la cuenta de Google
+              </p>
+            </div>
+          </a>
 
             {logged == 'invalid' &&
               <div className='errors'>

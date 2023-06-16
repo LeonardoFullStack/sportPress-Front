@@ -1,13 +1,17 @@
 @import 'variables';
 
+input {
+    background-color: white;
+}
+
 .loginForm form {
-    background-color: $dark-grey;
+    background-color:white;
     display: grid;
-    grid-template-rows: 60px 1fr 1fr;
-    width: 80%;
+    grid-template-rows: 170px 1fr 1fr;
+    width: 297px;
     margin: 60px auto;
     padding:10px;
-    height: 50vh;
+    height: 400px;
     border-radius: 5px;
 
     h1 {
@@ -22,7 +26,13 @@
         margin:0px;
         margin-top: 5px;
         margin-bottom:5px;
+        height:81px;
+        background: linear-gradient(to right,white 30%, #1E2022) ;
+        color: black;
+        font-weight:bold ;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     }
+
 
     
 }
@@ -30,4 +40,50 @@
 .inputsLogin {
     display: grid;
     grid-row: 2 / 3;
+}
+
+.formInput {
+    background-color: white;
+    height:44px;
+    border:3px solid $main-color;
+}
+
+.bigLogo img{
+    width:274px;
+}
+
+.entryButton{
+    margin-top:10px;
+    background-image: url('images/entrar.png');
+    background-size: cover;
+    border:none;
+    height: 65px;
+    width:100%;
+    cursor:pointer; 
+}
+
+.loadingImage {
+    width: 65px;
+    height:50px;
+    margin:0 auto;
+    img {
+        height:60px;
+        margin:0 auto;
+    }
+}
+
+.googleLink {
+    border: 3px solid transparent;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center;
+    background-image: linear-gradient(to right, #4285F4, #FBBC05, #34A853);
+    p {
+        font-family: monospace;
+        background-color: white;
+    }
+}
+
+.pointer {
+    cursor:pointer;
 }
