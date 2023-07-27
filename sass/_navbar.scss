@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Quicksand, monospace;
 }
 
 main {
@@ -16,7 +16,7 @@ header {
     display:grid;
     grid-template-columns: 100px 1fr 100px;
     height: 60px;
-    background: linear-gradient(to right,white 45%, #1E2022) ;
+
     gap: 5px;
 
     img {
@@ -26,11 +26,13 @@ header {
 }
 
 footer {
-    position: relative;
+
     display:grid;
     place-items:center;
     background: black;
     height:60px;
+    width:100%;
+    margin-top:10px;
 
     p {
         display: flex;

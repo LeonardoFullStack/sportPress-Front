@@ -1,3 +1,10 @@
+@import 'variables';
+@import 'mixins';
+
+
+
+
+
 #alterInfoHome {
     display:grid;
     grid-template-columns: 1fr ;
@@ -14,12 +21,13 @@
     padding:5px;
     justify-content: center;
     align-items: center;
-    width: 220px;
+    width: 378px;
     margin:10px auto 0 auto;
-    height:130px;
+    height:232px;
     padding: 10px;
     color:white;
     border:2px solid black;
+    font-size:1.65rem;
 
     p , a {
         font-weight: bold;
@@ -44,19 +52,19 @@ h2 {
     padding:5px;
     border-bottom:2px solid black;
     margin-bottom:3px;
+    @include font-responsive(1.3rem)
 }
 
 .teamInfo {
-    display:flex;
-    flex-direction: column;
+    display:grid;
+    place-items: center;
     border-radius: 3px;
-    background-color: black;
-    border: 1px solid chartreuse; 
-    justify-content: center;
+    background-color: $clear-grey2;
+    border:2px solid black;
     align-items: center;
-    width: 200px;
+    width: 378px;
     margin:10px auto 0 auto;
-    height:100px;
+    height:232px;
     padding: 10px 5px 10px 5px;
 }
 
@@ -66,11 +74,11 @@ h2 {
 }
 
 .imgTeam {
-    height: 90px;
+
 
     img {
         width:100%;
-        object-fit: cover;
+        max-width:165px;
         border-radius: 53px;
     }
 }
@@ -85,8 +93,14 @@ h2 {
         max-width: 100px;
         max-height: 100px;
         margin:5px;
-        display:inline-block;
+        display:block;
         border-radius: 3px;
+    }
+}
+
+.imageAndText {
+    p {
+        padding:5px;
     }
 }
 
@@ -100,18 +114,20 @@ h2 {
     border-bottom:1px solid black;
     margin-top:10px;
     padding:10px;
-    overflow:auto;
     border-radius: 5px;
+    overflow:auto;
 
     img {
+        display:block;
         float: left;
         margin-right: 10px;
-        max-width:140px;
+        max-width:243px;
     
       }
       
       p {
         margin-top: 0;
+        @include font-responsive(1rem);
       }
 }
 
@@ -163,7 +179,35 @@ h2 {
 .newText {
     height: auto;
 }
-/* style={{ display: 'grid', gridTemplateColumns: '1fr', margin: '15px auto', width: '80%', justifyContent: 'center', border: '1px solid black', borderRadius: '3px' }} */
+
+@media screen and (min-width:1200px) {
+    #alterInfoHome {
+        grid-template-columns: 1fr 400px;
+        grid-template-rows: 250px 250px auto;
+        gap:30px;
+    }
+
+    .teamInfo {
+        position: relative;
+        margin:0 auto;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    main {
+        overflow:auto;
+    }
+
+    #userInfo {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
 
 
+    .alterNew {
+        grid-row:1 / 2;
+    }
+
+
+}
 

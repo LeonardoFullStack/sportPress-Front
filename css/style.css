@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Quicksand, monospace;
 }
 
 main {
@@ -14,7 +14,6 @@ header {
   display: grid;
   grid-template-columns: 100px 1fr 100px;
   height: 60px;
-  background: linear-gradient(to right, white 45%, #1E2022);
   gap: 5px;
 }
 header img {
@@ -22,11 +21,12 @@ header img {
 }
 
 footer {
-  position: relative;
   display: grid;
   place-items: center;
   background: black;
   height: 60px;
+  width: 100%;
+  margin-top: 10px;
 }
 footer p {
   display: flex;
@@ -154,14 +154,16 @@ body {
 #mainNews {
   width: 80%;
   margin: 10px auto;
-  overflow: auto;
+  overflow: hidden;
 }
 
 #parent {
   width: 100%;
-  height: 150px;
+  max-width: 624px;
+  height: 240px;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .child {
@@ -179,6 +181,22 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 768px) {
+  .child h1 {
+    font-size: 1.56rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .child h1 {
+    font-size: 1.69rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .child h1 {
+    font-size: 2.34rem;
+  }
 }
 .child img {
   width: 100%;
@@ -198,6 +216,17 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+@media screen and (min-width: 768px) {
+  #parent {
+    height: 350px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #parent {
+    height: 450px;
+    max-width: 824px;
+  }
+}
 #alterInfoHome {
   display: grid;
   grid-template-columns: 1fr;
@@ -214,12 +243,13 @@ body {
   padding: 5px;
   justify-content: center;
   align-items: center;
-  width: 220px;
+  width: 378px;
   margin: 10px auto 0 auto;
-  height: 130px;
+  height: 232px;
   padding: 10px;
   color: white;
   border: 2px solid black;
+  font-size: 1.65rem;
 }
 #userInfo p, #userInfo a {
   font-weight: bold;
@@ -241,19 +271,34 @@ h2 {
   padding: 5px;
   border-bottom: 2px solid black;
   margin-bottom: 3px;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 1.56rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  h2 {
+    font-size: 1.69rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  h2 {
+    font-size: 2.34rem;
+  }
 }
 
 .teamInfo {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
   border-radius: 3px;
-  background-color: black;
-  border: 1px solid chartreuse;
-  justify-content: center;
+  background-color: rgb(204, 200, 200);
+  border: 2px solid black;
   align-items: center;
-  width: 200px;
+  width: 378px;
   margin: 10px auto 0 auto;
-  height: 100px;
+  height: 232px;
   padding: 10px 5px 10px 5px;
 }
 
@@ -262,12 +307,9 @@ h2 {
   margin-bottom: 5px;
 }
 
-.imgTeam {
-  height: 90px;
-}
 .imgTeam img {
   width: 100%;
-  object-fit: cover;
+  max-width: 165px;
   border-radius: 53px;
 }
 
@@ -281,8 +323,12 @@ h2 {
   max-width: 100px;
   max-height: 100px;
   margin: 5px;
-  display: inline-block;
+  display: block;
   border-radius: 3px;
+}
+
+.imageAndText p {
+  padding: 5px;
 }
 
 .newText {
@@ -295,16 +341,33 @@ h2 {
   border-bottom: 1px solid black;
   margin-top: 10px;
   padding: 10px;
-  overflow: auto;
   border-radius: 5px;
+  overflow: auto;
 }
 .alterNew img {
+  display: block;
   float: left;
   margin-right: 10px;
-  max-width: 140px;
+  max-width: 243px;
 }
 .alterNew p {
   margin-top: 0;
+  font-size: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .alterNew p {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .alterNew p {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .alterNew p {
+    font-size: 1.8rem;
+  }
 }
 
 #singleNew {
@@ -348,7 +411,29 @@ h2 {
   height: auto;
 }
 
-/* style={{ display: 'grid', gridTemplateColumns: '1fr', margin: '15px auto', width: '80%', justifyContent: 'center', border: '1px solid black', borderRadius: '3px' }} */
+@media screen and (min-width: 1200px) {
+  #alterInfoHome {
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 250px 250px auto;
+    gap: 30px;
+  }
+  .teamInfo {
+    position: relative;
+    margin: 0 auto;
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  main {
+    overflow: auto;
+  }
+  #userInfo {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .alterNew {
+    grid-row: 1/2;
+  }
+}
 #allComments {
   width: 90%;
   margin: 0 auto;
