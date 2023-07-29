@@ -24,6 +24,12 @@ function App() {
     changePassForm.classList.add('displayNone')
   }
 
+  const handleBurguer = () => {
+    const menuBurguer = document.querySelector('.burguerOpen')
+
+    menuBurguer.classList.toggle('displayNone')
+  }
+
   useEffect(() => {
 
 
@@ -40,7 +46,7 @@ function App() {
     <img alt="logo de la empresa" src="images/logoonlyletters.png"/>
     </div>
     <div className="burguermenu">
-    <span className="material-symbols-outlined">
+    <span className="material-symbols-outlined" onClick={handleBurguer}>
     menu
     </span>
     </div>

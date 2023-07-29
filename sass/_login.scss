@@ -99,12 +99,15 @@ input {
 
 .entryButton{
     margin-top:34px;
-    background-image: url('images/entrar.png');
     background-size: cover;
     border:none;
     height: 70px;
     width:100%;
     cursor:pointer; 
+
+    img {
+        max-width:295px;
+    }
 }
 
 .entryButtonChange{

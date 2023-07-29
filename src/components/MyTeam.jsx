@@ -10,11 +10,12 @@ export const MyTeam = () => {
     <>
     {
         team == 'Barcelona' &&
-        <img src='../src/assets/barca.png'/>
+        <img src='images/barca.png' alt='escudo barça'/>
+        
     }
     {
         team == 'Madrid' &&
-        <img src='../src/assets/madrid.jpg'/>
+        <img src='images/madrid.jpg' alt='escudo madrid'/>
     }
     </>
   )

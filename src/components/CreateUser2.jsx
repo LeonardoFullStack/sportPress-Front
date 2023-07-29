@@ -67,7 +67,9 @@ export const CreateUser2 = ({clearPage}) => {
                 <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
               </div>)
               :
-              (<input type='submit' className='entryButton' value=''/>)
+              (<button type='submit' className='entryButton'>
+                <img src="images/entrar.png"/>
+              </button>)
             }
           <a className='pointer' onClick={() => loginWithRedirect()}>
             <div className='googleLink'>
