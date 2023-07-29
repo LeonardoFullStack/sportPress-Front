@@ -12,6 +12,7 @@ import { UpdateRole } from '../components/admin/UpdateRole'
 import { EditNewState } from '../components/editor/EditNewState'
 import { NewsOnStates } from '../components/collaborator/NewsOnStates'
 import { Auth0 } from '../components/Auth0'
+import { CreateUser2 } from '../components/CreateUser2'
 
 export const Router = () => {
 
@@ -26,7 +27,7 @@ export const Router = () => {
     <Route path='/logout' element={<LogOut />} />
     <Route path='/viewone/:id' element={<ViewOne />} />
     <Route path='/changepass' element={<ChangePass />} />
-    <Route path='/createuser' element={<CreateUser />} />
+    <Route path='/createuser' element={<CreateUser2 />} />
     <Route path='/*' element={<Navigate to={'/'} />} />
     {
     role == 'collaborator' && <>

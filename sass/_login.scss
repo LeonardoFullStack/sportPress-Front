@@ -4,15 +4,27 @@ input {
     background-color: white;
 }
 
+.tapao {
+    opacity: 0.3;
+}
+
 .loginForm form {
-    background-color:white;
+    background-color: white;
     display: grid;
+    position: fixed; /* Cambiar de "absolute" a "fixed" para que el formulario quede fijo */
     grid-template-rows: 170px 1fr 1fr;
-    width: 297px;
-    margin: 60px auto;
-    padding:10px;
-    height: 400px;
+    width: 316px;
+    height: 444px;
+    top: 0; 
+    left:0;
+    bottom:0;
+    right:0;
+
+    opacity:1!important;
+    margin: auto; 
+    padding: 10px;
     border-radius: 5px;
+    z-index: 100000;
 
     h1 {
         display:grid;
@@ -37,9 +49,26 @@ input {
     
 }
 
+.xLogin {
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:99999;
+    font-size:2rem;
+    margin-right:12px;
+    cursor:pointer;
+
+    
+}
+
+.xLogin:hover {
+    transform:scale(1.2)
+}
+
 .inputsLogin {
     display: grid;
     grid-row: 2 / 3;
+    margin-top:20px;
 }
 
 .formInput {
@@ -49,18 +78,50 @@ input {
 }
 
 .bigLogo img{
-    width:274px;
+    width:264px;
+    margin-left:3px;
+}
+
+.bigLogo {
+    margin-bottom:5px;
+}
+
+.register {
+    form {
+        height:541px;
+    }
+}
+
+.register .bigLogo img {
+    width:236px;
+    margin-left:20px;
 }
 
 .entryButton{
-    margin-top:10px;
+    margin-top:34px;
     background-image: url('images/entrar.png');
     background-size: cover;
     border:none;
-    height: 65px;
+    height: 70px;
     width:100%;
     cursor:pointer; 
 }
+
+.entryButtonChange{
+    margin-top:34px;
+    background-image: url('images/cambiarimg.png');
+    background-size: cover;
+    border:none;
+    height: 65px;
+    width:291;
+    cursor:pointer; 
+}
+
+
+
+.entryButtonChange:hover, .entryButton:hover {
+    transform: scale(1.01);
+}   
 
 .loadingImage {
     width: 65px;
@@ -70,6 +131,10 @@ input {
         height:60px;
         margin:0 auto;
     }
+}
+
+.changePassInput {
+    margin:0 auto;
 }
 
 .googleLink {

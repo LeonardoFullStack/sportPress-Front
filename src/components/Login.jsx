@@ -6,7 +6,7 @@ import { useCookie } from '../hooks/useCookie'
 import { Navigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react' 
 
-export const Login = () => {
+export const Login = ({clearPage}) => {
 
   const { formulario, handleChange, enviado, setEnviado, serializarFormulario, setFormulario } = useForm('')
   const { email, name, role, isLoading } = useSelector((state) => state.users)
@@ -36,7 +36,7 @@ export const Login = () => {
 
   }
 
-
+// esto no se por que estaba así, parece más logico como lo he dejado, pero lo dejo comentado por si me he cargado algo
   useEffect(() => {
 
     if (enviado) {
@@ -49,10 +49,14 @@ export const Login = () => {
   return (
     <>
   
-      <div className='loginForm'>
+      <div className='loginForm displayNone'>
+
+        
         
         <form onSubmit={handleSubmit}>
-          
+        <span className='xLogin' onClick={clearPage}>
+          X
+        </span>
         <div className='bigLogo'>
             <img alt='logo completo' src='images/logoyletras.png'/>
           </div>
@@ -92,10 +96,6 @@ export const Login = () => {
         </form>
       </div>
 
-      {
-        logged == 'admitted' &&
-        <Navigate to={'/'} />
-      }
 
 
     </>

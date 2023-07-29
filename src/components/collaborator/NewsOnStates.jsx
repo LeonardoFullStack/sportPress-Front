@@ -17,6 +17,9 @@ export const NewsOnStates = () => {
     <section>
         <table className='usersTable aproved'>
             <thead>
+                <th colspan="4" className='aproved'>
+                    Aprovadas
+                </th>
                 <tr>
                 <th>
                 Título
@@ -48,6 +51,9 @@ export const NewsOnStates = () => {
     <section>
         <table className='usersTable pending'>
             <thead>
+            <th colspan="4" className='pending'>
+                    Pendientes
+                </th>
                 <tr>
                 <th>
                 Título
@@ -79,6 +85,9 @@ export const NewsOnStates = () => {
     <section>
         <table className='usersTable rejected'>
             <thead>
+            <th colspan="4" className='rejected'>
+                    Rechazadas
+                </th>
                 <tr>
                 <th>
                 Título

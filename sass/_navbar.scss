@@ -9,6 +9,8 @@
 
 main {
     background-color: $main-color;
+    height: calc(100vh - 130px);
+    overflow:auto;
 }
 
 header {
@@ -28,6 +30,8 @@ header {
 footer {
 
     display:grid;
+    position: fixed;
+    bottom:0;
     place-items:center;
     background: black;
     height:60px;

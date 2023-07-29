@@ -1,14 +1,58 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { Login } from './Login'
+import { CreateUser2 } from './CreateUser2'
+import { ChangePass } from './ChangePass'
 
 
 export const NavBar = () => {
   
-    const { email, name, role, isLoading } = useSelector((state) => state.users)
+    const { email, name, role, isLoading, requestState } = useSelector((state) => state.users);
+
+    
+
+    const clearPage = () => {
+      const mainContainer = document.querySelector('main');
+      const loginForm = document.querySelector('.loginForm');
+      const registerForm = document.querySelector('.register');
+      const changePassForm = document.querySelector('.changePassDiv');
+      mainContainer.classList.remove('tapao')
+      loginForm.classList.add('displayNone')
+      registerForm.classList.add('displayNone')
+      changePassForm.classList.add('displayNone')
+    }
+    const handleLogins = (order) => {
+      const mainContainer = document.querySelector('main');
+      const loginForm = document.querySelector('.loginForm');
+      const registerForm = document.querySelector('.register');
+      const changePassForm = document.querySelector('.changePassDiv');
+
+      mainContainer.classList.add('tapao')
+
+      switch (order) {
+        case 'login':
+          loginForm.classList.remove('displayNone')
+          break;
+          case 'register':
+          registerForm.classList.remove('displayNone')
+          break;
+          case 'changePass':
+          changePassForm.classList.remove('displayNone')
+          break;
+      }
+      
+    }
+
+    useEffect(() => {
+         if (requestState == 'successfull') clearPage()
+    }, [requestState])
+    
 
   return (
+    <>
     <nav>
+
           <NavLink to='/' className='navLink'
           
           >Home
@@ -19,7 +63,7 @@ export const NavBar = () => {
           
             >Logout
             </NavLink>
-            <NavLink to='changepass' className='navLink'
+            <NavLink onClick={()=>handleLogins('changePass')} className='navLink'
           
             >Cambiar contraseña
             </NavLink>
@@ -29,11 +73,11 @@ export const NavBar = () => {
         }
         {
             name == null && <>
-            <NavLink to='login' className='navLink'
+            <NavLink onClick={()=>handleLogins('login')} className='navLink'
           
             >Login
             </NavLink>
-            <NavLink to='createuser' className='navLink'
+            <NavLink onClick={()=>handleLogins('register')} className='navLink'
           
             >Registro
             </NavLink>
@@ -76,5 +120,7 @@ export const NavBar = () => {
 
           
     </nav>
+        
+      </>
   )
 }

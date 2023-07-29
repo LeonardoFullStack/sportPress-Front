@@ -43,13 +43,7 @@ export const CreateUser = () => {
     
         <form onSubmit={handleSubmit}>
             <div className='formGroup'>
-            <h1>
-            Registrarse 
-            
-            como
-             usuario
-             
-           </h1>
+
 
 
                 <input type='text' className='formInput' name='email' placeholder='E-mail' onChange={handleChange}/>

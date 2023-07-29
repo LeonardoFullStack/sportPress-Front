@@ -32,9 +32,9 @@ export const TableNews = ({item}) => {
             <button className='classicButton'>consultar</button>
         </NavLink>
     </td>
-    <td>
+    <td className='gridTable'>
     
-    <button onClick={handleApproveClick} className="classicButton">Aprovar</button>
+    <button onClick={handleApproveClick} className="greenButton">Aprovar</button>
     <button onClick={handleRejectClick} className="redButton">Rechazar</button>
     </td>
     </tr>
