@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { checkCookie, checkLogin } from '../store/slices/users/thunk'
 import { useCookie } from '../hooks/useCookie'
 import { Navigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react' 
 
-export const Login = () => {
+export const Login = ({clearPage}) => {
 
   const { formulario, handleChange, enviado, setEnviado, serializarFormulario, setFormulario } = useForm('')
   const { email, name, role, isLoading } = useSelector((state) => state.users)
+  const {loginWithRedirect} = useAuth0()
   const dispatch = useDispatch()
   const [logged, setlogged] = useState('unLogged')
 
@@ -34,7 +36,7 @@ export const Login = () => {
 
   }
 
-
+// esto no se por que estaba así, parece más logico como lo he dejado, pero lo dejo comentado por si me he cargado algo
   useEffect(() => {
 
     if (enviado) {
@@ -47,27 +49,38 @@ export const Login = () => {
   return (
     <>
   
-      <div className='loginForm'>
+      <div className='loginForm displayNone'>
+
+        
         
         <form onSubmit={handleSubmit}>
-          <div className='formGroup'>
-          <div className="divLogo">
-          <img src="http://res.cloudinary.com/dnxliek6h/image/upload/v1683616586/aawfqr6nctmgtrmb5bci.png"/>
+        <span className='xLogin' onClick={clearPage}>
+          X
+        </span>
+        <div className='bigLogo'>
+            <img alt='logo completo' src='images/logoyletras.png'/>
           </div>
+          
 
-          <h1>Login</h1>
-
+          <div className='inputsLogin'>
             <input type='text' className='formInput' name='email' placeholder='Email' onChange={handleChange} />
             
             <input type='password' className='formInput' name='password' placeholder='Password' onChange={handleChange} />
-
+          </div>
             {isLoading ?
               (<div className='loadingImage'>
                 <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
               </div>)
               :
-              (<input type='submit' className='classicButton' value='entrar' />)
+              (<input type='submit' className='entryButton' value=''/>)
             }
+          <a className='pointer' onClick={() => loginWithRedirect()}>
+            <div className='googleLink'>
+              <p>
+                Entrar con la cuenta de Google
+              </p>
+            </div>
+          </a>
 
             {logged == 'invalid' &&
               <div className='errors'>
@@ -79,14 +92,10 @@ export const Login = () => {
                 Usuario o contraseña incorrecta.
               </div>}
 
-          </div>
+          
         </form>
       </div>
 
-      {
-        logged == 'admitted' &&
-        <Navigate to={'/'} />
-      }
 
 
     </>

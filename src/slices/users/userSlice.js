@@ -28,6 +28,7 @@ export const userSlice = createSlice({
                 state.name = action.payload.name;
                 state.id_user = action.payload.id_user;
                 state.team = action.payload.team;
+                state.requestState = 'successfull'
         },
         loginFailed: (state, action) => {
             state.isLoading = false;
@@ -36,6 +37,7 @@ export const userSlice = createSlice({
             state.name = null;
             state.id_user = null;
             state.team = null;
+            state.requestState = 'failed'
         },
         setTeam: (state, action) => {
             state.team = action.payload.team

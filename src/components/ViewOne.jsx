@@ -26,7 +26,7 @@ export const ViewOne = () => {
 
   return (
     <>
-      <section id='singleNew' style={{ display: 'grid', gridTemplateColumns: '1fr', margin: '15px auto', width: '80%', justifyContent: 'center', border: '1px solid black', borderRadius: '3px' }}>
+      <section id='singleNew'>
         <div className='title-date-container'>
           <h1 className='title'>{newTitle}</h1>
           <div className='date'>{newDate}</div>
@@ -35,12 +35,12 @@ export const ViewOne = () => {
           <img src={newImage} />
         </div>
         <div className='newText'>
-          {newText}
+          <p>{newText}</p>
         </div>
       </section>
 
-      <section>
-        Comentarios ({comments.length})
+      <section id='allComments'>
+       <h2> Comentarios ({comments.length}) </h2>
         {
           comments.map((item) => (
             <Comments item={item} key={item.id_comment} />

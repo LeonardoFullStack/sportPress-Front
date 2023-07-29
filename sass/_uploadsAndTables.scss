@@ -1,0 +1,85 @@
+@import 'mixins';
+
+.uploadBox {
+    display:grid;
+    place-items: center;
+    width:70%;
+    background-color: white;
+    max-width:500px;
+    margin:40px auto 0 auto;
+    border-radius: 15px;
+    padding:10px;
+
+    .uploadInput {
+        width:90%;
+        height:30px;
+    }
+
+    textarea {
+        width:90%;
+        height:350px;
+    }
+
+    .classicButton {
+        width: 80%;
+        margin-left:30px;
+        margin-bottom:10px;
+        margin-top:10px;
+    }
+}
+
+table {
+    width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #f8f8f8;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+
+  margin-top:20px;
+  @include font-responsive(1rem);
+
+  .aproved {
+    background-color: green;
+  }
+
+  .pending {
+    background-color: yellow;
+  }
+
+  .rejected {
+    background-color: red;
+  }
+
+  .classicButton {
+    @include font-responsive(1rem);
+  }
+}
+
+table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+}
+
+table td {
+    padding: 10px;
+  border: 1px solid #dcdcdc;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.gridTable {
+    display:grid;
+    place-items: center;
+}

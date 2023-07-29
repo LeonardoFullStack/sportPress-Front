@@ -12,6 +12,7 @@ export const Home = () => {
   const { email } = useSelector((state) => state.users)
   const [logged, setLogged] = useState('')
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(getLastNews())
     if (!email) {
@@ -19,6 +20,8 @@ export const Home = () => {
     }
     
   },[])
+
+  
 
   return (
     <>

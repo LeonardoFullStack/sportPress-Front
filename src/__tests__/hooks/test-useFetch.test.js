@@ -22,7 +22,7 @@ describe('consulta', () => {
     const url = '/api/users/updaterole';
       const body = {
         role:"admin",
-        email:"torno@gmail.com"
+        email:"nuevouser@gmail.com"
     }
       const method = 'put'
       const response = await consulta(url, method, body);
@@ -31,7 +31,7 @@ describe('consulta', () => {
 
   });
 
-  test('Todas las noticias deberían recibir el estado indicado', async () => {
+  test('debería devolver noticias en el estado especificado', async () => {
 
     const state = 'aproved'
     const url = `/api/news/newsbystate/${state}`;

@@ -1,4 +1,5 @@
-import { consulta } from "../../../hooks/useFetch";
+import { newAuth0User } from "../../../helpers/setAuth0User";
+import { auth0Consulta, consulta } from "../../../hooks/useFetch";
 import { getTheUsers, loginFailed, requestFailed, roleModified, setTeam, setUsers, startLoadingUsers } from "../../../slices/users/userSlice"
 import bcrypt from 'bcryptjs';
 
@@ -22,17 +23,17 @@ export const checkLogin = ({ email, password }, logged, setlogged) => {
 
         const resp = await consulta(`/api/users`, 'post', body)// cogemos el usuario
         const petition = await resp.json()
-       
+
         if (petition.ok) {
 
             let passwordOk = bcrypt.compareSync(password, petition.data[0].password)//verificamos su password
-            
+
             if (passwordOk) {
-               
+
                 dispatch(setUsers({ id_user: petition.data[0].id_user, email: petition.data[0].email, role: petition.data[0].role, name: petition.data[0].name, team: petition.data[0].team }))
                 setlogged('admitted')
                 document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
-                
+
             } else {
                 dispatch(loginFailed())
                 setlogged('failed')
@@ -46,6 +47,57 @@ export const checkLogin = ({ email, password }, logged, setlogged) => {
 
     }
 
+}
+
+export const auth0Login = (user, setvalidate) => {
+
+    return async (dispatch, getState) => {
+        dispatch(startLoadingUsers())
+        console.log(user)
+        const newUser = newAuth0User(user)
+
+
+        try {
+            const resp = await consulta(`/api/users`, 'post', user)
+            const petition = await resp.json()
+
+
+            if (petition.ok) {
+                const userForSlice = {
+                    email: petition.data[0].email,
+                    role: petition.data[0].role,
+                    name: petition.data[0].name,
+                    id_user: petition.data[0].id_user,
+                    team: petition.data[0].team
+                }
+                dispatch(setUsers({ ...userForSlice }));
+                document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
+                setvalidate('successfull')
+            } else {
+                console.log(newUser, 'pasipasi')
+                const resp2 = await consulta(`/api/users/signup`, 'post', newUser)
+
+                const petition2 = await resp2.json()
+                console.log(petition2, newUser, 'createuser')
+
+                if (petition2.ok) {
+                    const reduxUser = {
+                        email: petition2.data[0].email,
+                        role: petition2.data[0].role,
+                        name: petition2.data[0].name,
+                        id_user: petition2.data[0].id_user,
+                        team: petition2.data[0].team
+                    }
+                    dispatch(setUsers({ ...reduxUser }));
+                    document.cookie = `token=${petition2.token}; max-age=3600; Secure; SameSite=Strict;`
+                    setvalidate('successfull')
+                }
+            }
+        } catch (error) {
+            dispatch(loginFailed())
+            setvalidate('serverFailed')
+        }
+    }
 }
 
 
@@ -81,19 +133,13 @@ export const checkCookie = (cookie, setlogged) => {
             const petition = await resp.json()
 
             if (petition.ok) {
-                dispatch(setUsers({id_user:petition.user.id_user, email: petition.user.email, role: petition.user.role, name: petition.user.name }))
+                dispatch(setUsers({ id_user: petition.user.id_user, email: petition.user.email, role: petition.user.role, name: petition.user.name }))
                 setlogged('admitted')
 
             } else {
                 dispatch(loginFailed())
                 setlogged('unLogged')
             }
-
-
-
-
-
-
         }
     }
 }
@@ -111,12 +157,12 @@ export const checkCookie = (cookie, setlogged) => {
  * @returns {Promise<void>} - Una promesa que resuelve cuando la contraseña se actualiza correctamente.
  */
 export const changePass = async (body, setvalidate) => {
-    
+
     const resp = await consulta('/api/users/updatepass', 'put', body)
     const petition = await resp.json()
-   
+
     setvalidate('successfull')
-    
+
 
 }
 
@@ -141,19 +187,19 @@ export const selectTeam = (team, email) => {
         try {
             const resp = await consulta('/api/users/selectteam', 'put', body)
             const petition = await resp.json()
-            
+
             if (petition.ok) {
 
-                dispatch(setTeam({team: team}))
+                dispatch(setTeam({ team: team }))
 
             } else {
                 dispatch(requestFailed())
             }
         } catch (error) {
-            
+
             dispatch(requestFailed())
         }
-        
+
 
     }
 }
@@ -172,32 +218,42 @@ export const registerUser = (data, setvalidate) => {
         const body = {
             ...data
         }
-        
-        const resp = await consulta(`/api/users/signup`, 'post', body)
-       
-        const petition = await resp.json()
-        
-        
-        if (petition.ok) {
-            const newUser = {
-                email: petition.data[0].email,
-                role: petition.data[0].role,
-                name: petition.data[0].name,
-                id_user: petition.data[0].id_user,
-                team: petition.data[0].team
+
+        try {
+            const resp = await consulta(`/api/users/signup`, 'post', body)
+            const auth0Req = await auth0Consulta(body)
+            const meh = await auth0Req.json()
+            console.log(meh, 'meh')
+
+            const petition = await resp.json()
+            console.log(petition, 'createuser')
+
+            if (petition.ok) {
+                const newUser = {
+                    email: petition.data[0].email,
+                    role: petition.data[0].role,
+                    name: petition.data[0].name,
+                    id_user: petition.data[0].id_user,
+                    team: petition.data[0].team
+                }
+                dispatch(setUsers({ ...newUser }));
+                document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
+                setvalidate('successfull')
+            } else if (petition.msg === "Email ya en uso") {
+                dispatch(loginFailed())
+                setvalidate('usedEmail')
+
             }
-            dispatch(setUsers({...newUser}));
-            document.cookie = `token=${petition.token}; max-age=3600; Secure; SameSite=Strict;`
-            setvalidate('successfull')
-        } else if (petition.msg === "Email ya en uso") {
-            dispatch(loginFailed())
-            setvalidate('usedEmail')
+            else {
+                dispatch(loginFailed())
+                setvalidate('serverFailed')
+            }
+        }
+        catch (error) {
 
         }
-        else {
-            dispatch(loginFailed())
-            setvalidate('serverFailed')
-        }
+
+
     }
 }
 
@@ -208,14 +264,14 @@ export const registerUser = (data, setvalidate) => {
  * @returns {Function} Función asincrónica que obtiene todos los usuarios y los guarda en el estado global de Redux.
  */
 export const getAllUsers = () => {
-    return async (dispatch,getState) => {
+    return async (dispatch, getState) => {
         dispatch(startLoadingUsers())
         try {
             const resp = await consulta('/api/users')
             const petition = await resp.json()
-            
+
             if (petition.ok) {
-                dispatch(getTheUsers({users: petition.petition}))
+                dispatch(getTheUsers({ users: petition.petition }))
             }
         } catch (error) {
             dispatch(requestFailed())
@@ -241,9 +297,9 @@ export const updateRoleUser = (email, role) => {
         try {
             const resp = await consulta('/api/users/updaterole', 'put', body)
             const petition = await resp.json()
-            
+
             if (petition.ok) {
-                dispatch(roleModified({email: email, role:role}))
+                dispatch(roleModified({ email: email, role: role }))
             }
         } catch (error) {
             dispatch(requestFailed())

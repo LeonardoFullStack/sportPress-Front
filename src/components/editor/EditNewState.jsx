@@ -37,7 +37,7 @@ export const EditNewState = () => {
             {
        
                 pendingNews.map((item, index)=> (
-                    <TableNews item={item} key={item.id_user}/>
+                    <TableNews item={item} key={item.title}/>
                 ))
             }
         </tbody>

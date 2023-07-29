@@ -31,33 +31,33 @@ export const UploadEntry = () => {
     },[])
   return (
     <>
-    <div className='loginForm'>
+    <div className='uploadBox'>
             <form onSubmit={handleSubmit}>
               <div className='formGroup'>
                 <h1 className='firtsHeader'>
                   Título
                 </h1>
-            <input type='text' className='formInput' name='title' placeholder='Título' onChange={handleChange}/>
+            <input type='text' className='uploadInput' name='title' placeholder='Título' onChange={handleChange}/>
             <h1 className='firtsHeader'>
                   Extracto
                 </h1>
-            <input type='text' className='formInput' name='extract' placeholder='extracto' onChange={handleChange}/>
+            <input type='text' className='uploadInput' name='extract' placeholder='extracto' onChange={handleChange}/>
             <h1 className='firtsHeader'>
                   Tags
                 </h1>
-            <input type='text' className='formInput' name='tags' placeholder='tags' onChange={handleChange}/>
+            <input type='text' className='uploadInput' name='tags' placeholder='tags' onChange={handleChange}/>
             <h1 className='firtsHeader'>
                   Texto
                 </h1>
-            <textarea type='text' className='formInput textarea' name='text' placeholder='Cuerpo' onChange={handleChange}></textarea>
+            <textarea type='text' name='text' placeholder='Cuerpo' onChange={handleChange}></textarea>
             <h1 className='firtsHeader'>
                   Imagen
                 </h1>
-            <input type='file' className='formInput fileInput' name='entryImage'  onChange={handleChange}/>
+            <input type='file' className=' fileInput' name='entryImage'  onChange={handleChange}/>
             <h2 className='firtsHeader'>
                   Definición de la imagen
                 </h2>
-            <input type='text' className='formInput' name='altimage' placeholder='Definición' onChange={handleChange}/>
+            <input type='text' className='uploadInput' name='altimage' placeholder='Definición' onChange={handleChange}/>
             {requestState == 'loading' ?
             (<div className='loadingImage'>
             <img src="https://i.gifer.com/ZKZg.gif" alt="imagen cargando" />
