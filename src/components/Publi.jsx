@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export const Publi = () => {
 
   return (
-    <section className='publi'>
+    <section className='myPubli'>
         <img src='/images/devimg.png'/>
         <p>
             Esta es una página web de Leonardo developer.

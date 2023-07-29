@@ -183,7 +183,8 @@ h2 {
 .newText {
     height: auto;
 }
-.publi {
+.myPubli {
+    display:grid;
     width: 388px;
     margin:10px auto 0 auto;
     border:2px solid black;
@@ -260,7 +261,7 @@ h2 {
         grid-row:1 / 2;
     }
 
-    .publi {
+    .myPubli {
         grid-column: 2 / 3;
     }
 

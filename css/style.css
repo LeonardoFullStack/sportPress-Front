@@ -433,7 +433,8 @@ h2 {
   height: auto;
 }
 
-.publi {
+.myPubli {
+  display: grid;
   width: 388px;
   margin: 10px auto 0 auto;
   border: 2px solid black;
@@ -444,18 +445,18 @@ h2 {
   color: rgb(206, 202, 202);
   align-items: center;
 }
-.publi img {
+.myPubli img {
   max-width: 378px;
 }
-.publi p {
+.myPubli p {
   padding: 10px;
   margin: 10px;
   text-align: center;
 }
-.publi .NavLink {
+.myPubli .NavLink {
   text-decoration: none;
 }
-.publi button {
+.myPubli button {
   display: grid;
   width: 350px;
   height: 50px;
@@ -464,11 +465,11 @@ h2 {
   grid-template-columns: 100px 250px;
   text-decoration: none;
 }
-.publi button img {
+.myPubli button img {
   max-width: 45px;
   margin-left: 5px;
 }
-.publi button span {
+.myPubli button span {
   display: grid;
   place-items: center;
   font-size: 2rem;
@@ -498,7 +499,7 @@ h2 {
   .alterNew {
     grid-row: 1/2;
   }
-  .publi {
+  .myPubli {
     grid-column: 2/3;
   }
 }
