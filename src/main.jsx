@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: 'https://google.es'
+        redirect_uri: 'https://sportpress.netlify.app/auth0'
       }}
     >
   <Provider store={store}>
