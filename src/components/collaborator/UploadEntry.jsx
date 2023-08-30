@@ -14,7 +14,9 @@ export const UploadEntry = () => {
  
     const handleSubmit = (ev) => {
         ev.preventDefault()
+        console.log(ev.target,'tarjet')
         const data=serializarFormulario(ev.target);
+        console.log('data',data)
         
         if (
           data.title.length <= 2 || data.extract.length <= 2 || data.title.text <= 30 || data.entryImage.name.length == 0

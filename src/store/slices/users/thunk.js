@@ -223,7 +223,6 @@ export const registerUser = (data, setvalidate) => {
             const resp = await consulta(`/api/users/signup`, 'post', body)
             const auth0Req = await auth0Consulta(body)
             const meh = await auth0Req.json()
-            console.log(meh, 'meh')
 
             const petition = await resp.json()
             console.log(petition, 'createuser')

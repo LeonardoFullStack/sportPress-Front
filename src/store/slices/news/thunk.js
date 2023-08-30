@@ -18,7 +18,7 @@ import { requestFailed } from "../../../slices/users/userSlice";
  */
 export const uploadEntry = (data, id_user) => {
     
-
+    console.log(data.entryImage)
     return async (dispatch, getState) => {
         dispatch(startLoading())
 
